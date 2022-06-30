@@ -1,0 +1,151 @@
+.link-your-div {
+  position: absolute;
+  top: 451.2px;
+  left: 736.16px;
+  font-size: 40px;
+  text-align: center;
+  display: inline-block;
+  width: 257.84px;
+  height: 130.38px;
+}
+.background-memberpage-icon {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  height: 167px;
+  object-fit: cover;
+}
+.abc-bank-div1,
+.transfer-miles-div {
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
+  display: inline-block;
+}
+.transfer-miles-div {
+  position: absolute;
+  top: 225px;
+ /* left: calc(50% - 285.56px - 1037.94px);*/
+  left: 28px;
+  font-size: 48px;
+  color: #4ab2d3;
+  display: inline-block;
+  width: 571.11px;
+  height: 118.38px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+.abc-bank-div1 {
+  top: 30px;
+  width: 892px;
+  height: 76px;
+  left: 928px;;
+  
+  font-size: 40px;
+  position: absolute;
+  display: inline-block;
+}
+.once-linked-we-will-use-this {
+  position: absolute;
+  top: 587px;
+  left: 804px;
+  font-size: 36px;
+  display: inline-block;
+  width: 1234px;
+  height: 52px;
+}
+.confirm-no-rect-input,
+.memberhsip-no-rect-input,
+.primary-rect-input,
+.verify-rect-button {
+  border: 1px solid #000;
+  background-color: #d9d9d9;
+  position: absolute;
+  top: 818.49px;
+  left: 960.77px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  width: 819.6px;
+  height: 130.38px;
+}
+.confirm-no-rect-input,
+.memberhsip-no-rect-input,
+.verify-rect-button {
+  top: 1323.7px;
+}
+.memberhsip-no-rect-input,
+.verify-rect-button {
+  top: 1082.87px;
+}
+.verify-rect-button {
+  cursor: pointer;
+  padding: 0;
+  background-color: #cdf5f4;
+  top: 1492px;
+  left: 1189px;
+  border-radius: 10px;
+  width: 344px;
+  height: 89px;
+}
+.confirm-membership-number,
+.membership-number,
+.primary-cardholder-b {
+  position: absolute;
+  top: 744.53px;
+  left: 955.43px;
+  display: inline-block;
+  width: 641.09px;
+  height: 43.53px;
+}
+.confirm-membership-number,
+.membership-number {
+  top: 1001.29px;
+}
+.confirm-membership-number {
+  top: 1251.27px;
+}
+.account-to-start,
+.back-button,
+.verify-membership {
+  position: absolute;
+  top: 1527px;
+  left: 1234px;
+  display: inline-block;
+  width: 256px;
+  height: 29px;
+}
+.account-to-start,
+.back-button {
+  top: 451.2px;
+  left: 1661.43px;
+  font-size: 40px;
+  text-align: center;
+  width: 424.93px;
+  height: 86.92px;
+}
+.back-button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 160px;
+  left: 5px;
+  font-size: 40px;
+  color: #fff;
+  display: inline-block;
+  width: 134px;
+  height: 56px;
+}
+.membership-validation-div {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1593px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 30px;
+  color: #000;
+  font-family: Abhaya Libre;
+}

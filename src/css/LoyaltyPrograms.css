@@ -1,0 +1,349 @@
+.conrad-rect-div,
+.eminent-rect-div,
+.gojet-rect-div,
+.indo-rect-div,
+.millenium-rect-div,
+.quantum-rect-div {
+  position: absolute;
+  top: 1900.64px;
+  left: 1.13px;
+  border-radius: 20px;
+  background-color: #b1d6f1;
+  width: 100%;
+  height: 190px;
+}
+.conrad-rect-div,
+.eminent-rect-div,
+.gojet-rect-div,
+.indo-rect-div,
+.quantum-rect-div {
+  top: 1595.51px;
+}
+.eminent-rect-div,
+.gojet-rect-div,
+.indo-rect-div,
+.quantum-rect-div {
+  top: 1029.15px;
+  left: 1.31px;
+}
+.gojet-rect-div,
+.indo-rect-div,
+.quantum-rect-div {
+  top: 1313.85px;
+  left: 0;
+}
+.gojet-rect-div,
+.indo-rect-div {
+  top: 746.88px;
+  left: 1.13px;
+  /*width: 1856.87px;*/
+}
+.gojet-rect-div {
+  top: 389.34px;
+  left: 1.31px;
+  width: 100%;
+  height: 179.04px;
+}
+.gojet-desc-div {
+  position: absolute;
+  top: 473.41px;
+  left: 335.36px;
+  display: flex;
+  align-items: center;
+  width: 1133.26px;
+  height: 87.67px;
+}
+.logo-gojet-icon,
+.logo-indopacific-icon {
+  position: absolute;
+  top: 755.07px;
+  left: 54.02px;
+  border-radius: 20px;
+  width: 166.56px;
+  height: 170.66px;
+  object-fit: cover;
+}
+.logo-gojet-icon {
+  top: 398.55px;
+  width: 156.43px;
+  height: 162.48px;
+}
+.background-lp-icon {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  height: 167px;
+  object-fit: cover;
+}
+.millenium-desc-div {
+  position: absolute;
+  top: 1989.47px;
+  left: 352.24px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  width: 1246.92px;
+  height: 88.84px;
+}
+.conrad-desc-div,
+.eminent-desc-div,
+.indo-desc-div,
+.quantum-desc-div {
+  position: absolute;
+  top: 1669.19px;
+  left: 340.99px;
+  display: flex;
+  align-items: center;
+  width: 1439.36px;
+  height: 115.72px;
+}
+.eminent-desc-div,
+.indo-desc-div,
+.quantum-desc-div {
+  top: 1394.5px;
+  width: 1257.05px;
+  height: 90.01px;
+}
+.eminent-desc-div,
+.indo-desc-div {
+  top: 1116.3px;
+  width: 1258.17px;
+  height: 78.32px;
+}
+.indo-desc-div {
+  top: 843.95px;
+  width: 1250.3px;
+  height: 81.82px;
+}
+.conrad-div,
+.millenium-div {
+  position: absolute;
+  top: 1928.69px;
+  left: 352.24px;
+  font-size: 36px;
+  display: inline-block;
+  width: 1173.77px;
+  height: 75.98px;
+}
+.conrad-div {
+  top: 1620.1px;
+  width: 1353.83px;
+  height: 98.19px;
+}
+.eminent-div,
+.gojet-div,
+.indopacific-div,
+.quantum-div {
+  position: absolute;
+  top: 1332.55px;
+  left: 340.99px;
+  font-size: 36px;
+  display: inline-block;
+  width: 1212.03px;
+  height: 75.98px;
+}
+.eminent-div,
+.gojet-div,
+.indopacific-div {
+  top: 1059.03px;
+  width: 1185.02px;
+  height: 66.63px;
+}
+.gojet-div,
+.indopacific-div {
+  top: 785.5px;
+  width: 1177.15px;
+  height: 70.13px;
+}
+.gojet-div {
+  top: 418.47px;
+  left: 334.24px;
+  width: 1134.38px;
+  height: 77.15px;
+}
+.available-loyalty-programs,
+.featured-programs-div {
+  position: absolute;
+  top: 657px;
+  left: 28px;
+  font-size: 40px;
+  display: inline-block;
+  width: 583.47px;
+  height: 71.25px;
+}
+.featured-programs-div {
+  top: 320px;
+  width: 385.55px;
+}
+.abc-bank-div2{
+
+
+  display: inline-block;
+  top: 30px;
+  width: 892px;
+  height: 76px;
+  left:1000px;
+  font-size: 40px;
+
+  position:absolute;
+ 
+}
+.loyalty-programs-div {
+  
+  position: absolute;
+  top: 225px;
+ /* left: calc(50% - 285.56px - 1037.94px);*/
+  left: 28px;
+  font-size: 48px;
+  color: #4ab2d3;
+  display: inline-block;
+  width: 571.11px;
+  height: 118.38px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+
+.conrad-1-icon,
+.qflyer-1-icon {
+  position: absolute;
+  top: 1323.2px;
+  left: 58.52px;
+  border-radius: 20px;
+  width: 166.56px;
+  height: 170.66px;
+  object-fit: cover;
+}
+.conrad-1-icon {
+  top: 1604.9px;
+  height: 180.01px;
+}
+.eminent-logohelp-div,
+.my-millennium-club-1-icon {
+  position: absolute;
+  border-radius: 20px;
+  height: 170.66px;
+}
+.my-millennium-club-1-icon {
+  top: 1907.23px;
+  left: 63.96px;
+  width: 165.43px;
+  object-fit: cover;
+}
+.eminent-logohelp-div {
+  top: 1041.45px;
+  left: 54.02px;
+  background-color: #fff;
+  width: 166.56px;
+}
+.logo-2-icon {
+  position: absolute;
+  top: 1041.45px;
+  left: 73.15px;
+  width: 138.42px;
+  height: 153.13px;
+  object-fit: cover;
+  mix-blend-mode: darken;
+}
+.transfermiles-indo {
+  text-decoration: none;
+  top: 773.77px;
+  right : 400px;
+  color: #3184b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 209.32px;
+  height: 118.06px;
+}
+.transfermiles-eminent,
+.transfermiles-gojet-div,
+.transfermiles-indo {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+}
+.transfermiles-gojet-div {
+  top: 426.6px;
+  right : 400px;
+  color: #3184b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 210.45px;
+  height: 106.37px;
+}
+.transfermiles-eminent {
+  top: 1062.49px;
+  right : 400px;
+  width: 200.32px;
+  height: 108.71px;
+}
+.transfermiles-conrad,
+.transfermiles-eminent,
+.transfermiles-millenium-quantu {
+  text-decoration: none;
+  color: #3184b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.transfermiles-millenium-quantu {
+  position: absolute;
+  top: 1357.05px;
+  right : 400px;
+  text-align: center;
+  width: 207.07px;
+  height: 146.11px;
+  cursor: pointer;
+}
+.transfermiles-conrad {
+  top: 1594.38px;
+  right : 400px;
+  width: 218.32px;
+  height: 136.76px;
+}
+.back-button1,
+.transfermiles-conrad,
+.transfermiles-millenium {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+}
+.transfermiles-millenium {
+  text-decoration: none;
+  top: 1941.55px;
+  right : 400px;
+  color: #3184b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 183.44px;
+  height: 112.21px;
+}
+.back-button1 {
+  font-family: Abhaya Libre;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  font-size: 40px;
+  color: #fff;
+  display: inline-block;
+  width: 134px;
+  height: 56px;
+}
+.loyalty-programs {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1795px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 24px;
+  color: #000;
+  font-family: Abhaya Libre;
+}

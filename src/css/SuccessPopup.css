@@ -1,0 +1,107 @@
+.your-div {
+  position: absolute;
+  top: 417px;
+  left: 102px;
+  display: inline-block;
+  width: 103.17px;
+  height: 55.79px;
+}
+.cross-success-button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 932.46px;
+  width: 72.54px;
+  height: 55.79px;
+  background-image: url(../../public/cross-success@2x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.ellipse-icon1,
+.line-icon {
+  position: absolute;
+  top: 0;
+  left: 361.33px;
+  width: 272.44px;
+  height: 214.34px;
+}
+.line-icon {
+  top: 49.32px;
+  left: 469.76px;
+  width: 104.64px;
+  height: 103.86px;
+}
+.line-icon1,
+.success-div {
+  position: absolute;
+  top: 120.47px;
+  left: 416.19px;
+  width: 56.9px;
+  height: 31.3px;
+}
+.success-div {
+  top: 252.51px;
+  left: 204.58px;
+  font-size: 40px;
+  display: inline-block;
+  width: 586.8px;
+  height: 148.28px;
+}
+.account-div1,
+.miles-are-on-their-way,
+.to-your-div {
+  position: absolute;
+  top: 417px;
+  left: 429px;
+  display: inline-block;
+  width: 540.05px;
+  height: 57.26px;
+}
+.account-div1,
+.to-your-div {
+  top: 512.36px;
+  left: 23.24px;
+  width: 311.13px;
+  height: 49.91px;
+}
+.account-div1 {
+  top: 512px;
+  left: 662px;
+  width: 257.93px;
+  height: 63.13px;
+}
+.we-will-send {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.alternatively-you-can {
+  margin: 0;
+}
+.we-will-send-you-an-update-on {
+  position: absolute;
+  top: 678.26px;
+  left: 0;
+  font-size: 24px;
+  display: inline-block;
+  width: 996.27px;
+  height: 80.74px;
+}
+.success-popup {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  width: 1005px;
+  height: 759px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: center;
+  font-size: 32px;
+  color: #000;
+  font-family: Abhaya Libre;
+}

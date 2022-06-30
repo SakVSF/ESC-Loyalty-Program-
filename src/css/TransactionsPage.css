@@ -1,0 +1,93 @@
+.background-transaction-icon {
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  height: 167px;
+  object-fit: cover;
+}
+.transactions-page-div2 {
+ /* position: absolute;
+  top: calc(50% - 105.97px - 213.26px);
+  left: calc(50% - 312.31px - 758.19px);
+  color: #4ab2d3;
+  display: inline-block;
+  width: 624.62px;
+  height: 211.94px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;*/
+  position: absolute;
+  top: 225px;
+  left: 28px;
+  font-size: 48px;
+  color: #4ab2d3;
+  display: inline-block;
+  width: 571.11px;
+  height: 118.38px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+.abc-bank-div3 {
+  top: 30px;
+  width: 892px;
+  height: 76px;
+  left: 928px;;
+ 
+  font-size: 40px;
+  position: absolute;
+  display: inline-block;
+}
+.miles-div,
+.program-div,
+.transaction-status-div {
+  position: absolute;
+  top: 400px;
+  
+  display: inline-block;
+  width: 388px;
+  height: 70px;
+}
+.miles-div{
+  left: 52.16px;
+}
+
+.program-div {
+  
+  /*left: 801.44px;*/
+  justify-content: center;
+  right : 50%;
+ 
+}
+
+.transaction-status-div{
+  right: 100px;
+
+}
+.back-button2,
+.transactions-page-div1 {
+  text-align: center;
+  font-family: Abhaya Libre;
+}
+.back-button2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  font-size: 40px;
+  color: #fff;
+  display: inline-block;
+  width: 134px;
+  height: 56px;
+}
+.transactions-page-div1 {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1089px;
+  overflow: hidden;
+  font-size: 48px;
+  color: #000;
+}
