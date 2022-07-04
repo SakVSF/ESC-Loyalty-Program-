@@ -9,6 +9,9 @@ import { MembershipValidation } from "./MembershipValidation";
 import { LoyaltyPrograms } from "./LoyaltyPrograms";
 import { TransactionsPage } from "./TransactionsPage";
 import { useEffect } from "react";
+import { SignIn } from "./SignIn";
+import { SignOut } from "./SignOut";
+import { Register } from "./Register";
 
 function App() {
   const action = useNavigationType();
@@ -31,7 +34,22 @@ function App() {
         title = "Homepage";
         metaDescription = "Homepage";
         break;
+
+      case "/sign-in":
+        title = "Sign In";
+        metaDescription = "Sign In";
+        break;
      
+      case "/sign-out":
+        title = "Sign Out";
+        metaDescription = "Sign Out";
+        break;
+
+      case "/register":
+        title = "Register";
+        metaDescription = "Register";
+        break;
+
       case "/membership-validation":
         title = "MembershipValidation";
         metaDescription = "MembershipValidation";
@@ -45,12 +63,12 @@ function App() {
         metaDescription = "TransactionsPage";
         break;
       case "/":
-        title = "Homepage";
-        metaDescription = "Homepage";
+        title = "Sign In";
+        metaDescription = "Sign In";
         break;
       default:
-        title = "Homepage";
-        metaDescription = "Homepage";
+        title = "Sign In";
+        metaDescription = "Sign In";
         break;
 
     }
@@ -71,7 +89,13 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Homepage />} />
+      <Route path="/" element={<SignIn />} />
+
+      <Route path="/sign-in" element={<SignIn />} />
+
+      <Route path="/sign-out" element={<SignOut />} />
+
+      <Route path="/register" element={<Register />} />
 
       <Route path="/homepage" element={<Homepage />} />
 

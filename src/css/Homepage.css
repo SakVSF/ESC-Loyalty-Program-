@@ -18,17 +18,23 @@
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1px #000;
 }
+.sign-out-a,
 .transactions-page-div {
   position: absolute;
   top: 374.59px;
  /* left: 2074.04px;*/
-  right: 100px;
+  left: 2000px;
   font-size: 36px;
   color: #3184b2;
   display: inline-block;
   width: 290.07px;
   height: 40.02px;
   cursor: pointer;
+}
+
+.sign-out-a{
+  text-decoration: none;
+  left: 2500px;
 }
 .container-rewards-div {
   position: absolute;

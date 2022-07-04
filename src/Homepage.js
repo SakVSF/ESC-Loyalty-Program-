@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { RewardsToDisplay } from "./RewardsToDisplay";
 import "./css/Homepage.css";
 
@@ -8,6 +8,10 @@ export const Homepage = () => {
 
   const onTransactionsPageTextClick = useCallback(() => {
     navigate("/transactions-page");
+  }, [navigate]);
+
+  const onSignOutLinkClick = useCallback(() => {
+    navigate("/sign-out");
   }, [navigate]);
 
   const onViewLoyaltyProgramsClick = useCallback(() => {
@@ -58,6 +62,14 @@ export const Homepage = () => {
       >
         Transactions Page{" "}
       </div>
+      <Link
+        className="sign-out-a"
+        to="/sign-out"
+        id="sign_out"
+        onClick={onSignOutLinkClick}
+      >
+        Sign out{" "}
+      </Link>
       <div className="container-rewards-div" data-animate-on-scroll />
       <div className="transfer-your-rewards">Transfer Your Rewards </div>
       <div className="abc-bank-div">ABC Bank </div>

@@ -1,0 +1,128 @@
+.background-homepage-icon {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
+  }
+  .loyalty-program-marketplace {
+    position: absolute;
+    top: calc(50% - 59.19px - 615.31px);
+    /* left: calc(50% - 285.56px - 1037.94px);*/
+    left: 800px;
+    color: #4ab2d3;
+    display: inline-block;
+    width: 1000px;
+    height: 118.38px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke: 1px #000;
+  }
+  .abcbank-header-div,
+  .sign-in-button {
+    position: absolute;
+    top: 0;
+    left: 862px;
+    display: inline-block;
+    width: 748.15px;
+    height: 139.19px;
+  }
+  .abcbank-header-div{
+    top: 30px;
+    width: 892px;
+    height: 76px;
+    left: 928px;;
+    font-size: 40px;
+  }
+  .sign-in-button {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    top: 902.91px;
+    left: 1181.85px;
+    font-size: 36px;
+    font-weight: 500;
+    font-family: Alegreya;
+    color: #1f285d;
+    text-align: center;
+    width: 394.86px;
+    height: 56.54px;
+  }
+  .homepage-picture-icon {
+    position: absolute;
+    top: 1174.26px;
+    left: 0;
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+  }
+  .customer-engagement-made-simp {
+    position: absolute;
+    top: 1361.4px;
+    
+    left: 500px;
+    font-size: 40px;
+    font-weight: 800;
+    font-family: Alegreya;
+    color: #74bcbc;
+    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 1660px;
+    height: 85px;
+  }
+  .dont-have-an-account-registe {
+    text-decoration: none;
+    position: absolute;
+    top: 985px;
+    left: 1050px;
+    font-size: 36px;
+    color: inherit;
+    display: inline-block;
+    width: 650px;
+    height: 73px;
+    cursor: pointer;
+  }
+  .username_rect,
+  .password_rect {
+    border: 1px solid #000;
+    background-color: #d9d9d9;
+    position: absolute;
+    top: 687px;
+    left: 960.77px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    width: 819.6px;
+    height: 130.38px;
+  }
+  .username_rect {
+    top: 471px;
+  }
+  .password-b,
+  .username-b {
+    position: absolute;
+    top: 410px;
+    left: 955.43px;
+    font-size: 30px;
+    display: inline-block;
+    text-align: left;
+    width: 641.09px;
+    height: 43.53px;
+  }
+  .password-b {
+    top: 643px;
+  }
+  .sign-in {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 1795px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 48px;
+    color: #000;
+    font-family: Abhaya Libre;
+  }
+  

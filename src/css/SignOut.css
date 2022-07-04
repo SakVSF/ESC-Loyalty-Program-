@@ -1,0 +1,93 @@
+.background-homepage-icon3 {
+    position: absolute;
+    top: 140px;
+    left: 0;
+    width: 100%;
+    height: 167px;
+    object-fit: cover;
+  }
+  .abcbank-header-div3,
+  .loyalty-program-marketplace2 {
+    position: absolute;
+    font-size: 48px;
+    display: inline-block;
+  }
+  .loyalty-program-marketplace2 {
+    position: absolute;
+    top: calc(50% - 59.19px - 615.31px);
+    /* left: calc(50% - 285.56px - 1037.94px);*/
+    left: 800px;
+    color: #4ab2d3;
+    display: inline-block;
+    width: 1000px;
+    height: 118.38px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke: 1px #000;
+  }
+  .abcbank-header-div3 {
+    top: 30px;
+    width: 892px;
+    height: 76px;
+    left: 928px;;
+    font-size: 40px;
+}
+  .homepage-picture-icon3 {
+    position: absolute;
+    top: 1174.26px;
+    left: 0;
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+  }
+  .customer-engagement-made-simp3 {
+    position: absolute;
+    top: 1361.4px;
+    left: 406.49px;
+    font-weight: 800;
+    font-family: Alegreya;
+    color: #74bcbc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1660.03px;
+    height: 85.21px;
+  }
+  .successfully-signed-out1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .return-to-sign-in,
+  .successfully-signed-out {
+    position: absolute;
+    top: 522px;
+    left: 970px;
+    display: inline-block;
+    width: 650px;
+    height: 73px;
+  }
+  .return-to-sign-in {
+    text-decoration: none;
+    top: 616px;
+    left: 975px;
+    color: inherit;
+    width: 647px;
+    height: 69px;
+    font-size: 36px;
+    font-weight: 500;
+    font-family: Alegreya;
+    color: #1f285d;
+    
+    cursor: pointer;
+  }
+  .sign-out-div {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 1795px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 36px;
+    color: #000;
+    font-family: Abhaya Libre;
+  }
+  
