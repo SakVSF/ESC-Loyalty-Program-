@@ -1,5 +1,11 @@
 import "./css/EnterUsingPoints.css";
 
 export const EnterUsingPoints = () => {
-  return <div className="using-points-display-div" id="rewardsTotransfer" />;
+  return <input 
+            className="using-points-input-div"
+            required 
+            type="text"
+            id="rewardsTotransfer" 
+            
+            />;
 };

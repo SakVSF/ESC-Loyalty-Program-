@@ -71,6 +71,11 @@
 }
 .confirm-no-rect-input,
 .memberhsip-no-rect-input,
+.primary-rect-input{
+  font-size: 40px;
+}
+.confirm-no-rect-input,
+.memberhsip-no-rect-input,
 .verify-rect-button {
   top: 1323.7px;
 }

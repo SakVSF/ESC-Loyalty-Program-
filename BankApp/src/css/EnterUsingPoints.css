@@ -1,7 +1,8 @@
-.using-points-display-div {
+.using-points-input-div {
   position: absolute;
   top: 871.03px;
   left: 222.72px;
+  font-size: 40px;
   background-color: rgba(220, 217, 217, 0.44);
   border: 1px solid #000;
   box-sizing: border-box;
