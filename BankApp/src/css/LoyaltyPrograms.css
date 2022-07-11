@@ -10,7 +10,7 @@
   border-radius: 20px;
   background-color: #b1d6f1;
   width: 100%;
-  height: 190px;
+  height: 189.36px;
 }
 .conrad-rect-div,
 .eminent-rect-div,
@@ -36,12 +36,11 @@
 .indo-rect-div {
   top: 746.88px;
   left: 1.13px;
-  /*width: 1856.87px;*/
+
 }
 .gojet-rect-div {
   top: 389.34px;
-  left: 1.31px;
-  width: 100%;
+  left: 1.31px; 
   height: 179.04px;
 }
 .gojet-desc-div {
@@ -173,24 +172,17 @@
   height: 71.25px;
 }
 .featured-programs-div {
-  top: 320px;
+  top: 310px;
   width: 385.55px;
 }
-.abc-bank-div2{
-
-
+.abc-bank-div2,
+.loyalty-programs-div {
+  position: absolute;
+  font-size: 48px;
+  text-align: center;
   display: inline-block;
-  top: 30px;
-  width: 892px;
-  height: 76px;
-  left:1000px;
-  font-size: 40px;
-
-  position:absolute;
- 
 }
 .loyalty-programs-div {
-  
   position: absolute;
   top: 225px;
  /* left: calc(50% - 285.56px - 1037.94px);*/
@@ -203,7 +195,16 @@
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1px #000;
 }
+.abc-bank-div2 {
+  display: inline-block;
+  top: 30px;
+  width: 892px;
+  height: 76px;
+  left:1000px;
+  font-size: 40px;
 
+  position:absolute;
+}
 .conrad-1-icon,
 .qflyer-1-icon {
   position: absolute;
@@ -262,10 +263,11 @@
   position: absolute;
   text-align: center;
   cursor: pointer;
+  right : 400px;
 }
 .transfermiles-gojet-div {
   top: 426.6px;
-  right : 400px;
+  
   color: #3184b2;
   display: flex;
   align-items: center;
@@ -275,7 +277,7 @@
 }
 .transfermiles-eminent {
   top: 1062.49px;
-  right : 400px;
+  
   width: 200.32px;
   height: 108.71px;
 }
@@ -286,12 +288,13 @@
   color: #3184b2;
   display: flex;
   align-items: center;
+  right : 400px;
   justify-content: center;
 }
 .transfermiles-millenium-quantu {
   position: absolute;
   top: 1357.05px;
-  right : 400px;
+ 
   text-align: center;
   width: 207.07px;
   height: 146.11px;
@@ -299,7 +302,7 @@
 }
 .transfermiles-conrad {
   top: 1594.38px;
-  right : 400px;
+ 
   width: 218.32px;
   height: 136.76px;
 }
@@ -340,7 +343,7 @@
   position: relative;
   background-color: #fff;
   width: 100%;
-  height: 1795px;
+  height: 2127px;
   overflow: hidden;
   text-align: left;
   font-size: 24px;

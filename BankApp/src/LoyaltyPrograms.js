@@ -41,6 +41,8 @@ export const LoyaltyPrograms = () => {
       <div className="quantum-rect-div" />
       <div className="indo-rect-div" />
       <div className="gojet-rect-div" />
+
+      
       <div className="gojet-desc-div">
         Enjoy car rental, hotel, travel experiences, take off with flights, and
         related rewards
