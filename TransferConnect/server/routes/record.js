@@ -1,3 +1,4 @@
+const { query } = require("express");
 const express = require("express");
 
  
@@ -170,6 +171,27 @@ recordRoutes.route("/:id").delete((req, response) => {
 
 });
 
+//This section checks if a transaction is complete
+recordRoutes.route("/status").get(async function (req, res) {
+const db_connect = dbo.getDb();
+const memberid = req.body.MemberID;
+const query = {MemberID: memberid};
+const transaction =  await db_connect.collection("Transactions").findOne(query) // returns the transaction of that member
+const status = transaction.Status;
+console.log(status);
+if(status === "0"){
+  res.send("Transaction pending");
+}
+else if(status === "1")
+  {res.send("Transaction successful");
+}
+else if(status === "2"){
+  res.send("Transaction failed");
+}
+else{
+  res.send("Error, Unable to retrieve transaction status");
+}
+})
  
 
 module.exports = recordRoutes;
