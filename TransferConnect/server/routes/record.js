@@ -26,7 +26,7 @@ const ObjectId = require("mongodb").ObjectId;
 
  
 
-// This section will help you get a list of all the records.
+// This section will help you get a list of all the loyalty programs.
 
 recordRoutes.route("/record").get(function (req, res) {
 
@@ -47,6 +47,28 @@ recordRoutes.route("/record").get(function (req, res) {
    });
 
 });
+
+
+//returns a array of jsons of transactions
+recordRoutes.route("/transactions").get(function (req, res) {
+
+  let db_connect = dbo.getDb("TransferConnect");
+ 
+  db_connect
+ 
+    .collection("Transactions")
+ 
+    .find({})
+ 
+    .toArray(function (err, result) {
+ 
+      if (err) throw err;
+ 
+      res.json(result);
+ 
+    });
+ 
+ });
 
  
 
