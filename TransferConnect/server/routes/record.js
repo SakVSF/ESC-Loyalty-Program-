@@ -35,7 +35,7 @@ recordRoutes.route("/record").get(function (req, res) {
     });
 });
 
-//returns a array of jsons of transactions
+//returns an array of jsons of transactions
 recordRoutes.route("/transactions").get(function (req, res) {
   let db_connect = dbo.getDb("TransferConnect");
 
