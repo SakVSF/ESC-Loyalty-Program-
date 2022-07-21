@@ -1,8 +1,17 @@
 .lp-name-div {
   position: absolute;
-  top: 435.44px;
-  left: 1046.84px;
+  top: 500px;
+  left: 500px;
+  width: 376.83px;
+  height: 50px;
+  font-size: 48px;
   background-color: #fff;
-  width: 576.17px;
-  height: 97.78px;
+ 
+
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+  
+  
+  
 }
