@@ -55,7 +55,7 @@ recordRoutes.route("/transactions").get(function (req, res) {
 })
 //takes an transac request and checks if the memberid format is correct.
 //inputs: regex_format and memberid to check
-//output: a 
+//output: a response with a message to check validity.
 .post(function(req,res){
   let db_connect = dbo.getDb();
   const loyalty_currency_name = req.body.loyalty_currency_name;
