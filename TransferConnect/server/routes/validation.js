@@ -10,3 +10,6 @@ function Validate(regexstr, input) {
     return false;
   }
 }
+
+module.exports = {Validate};
+// console.log(Validate("[0-9]{10}", "1567894820"));

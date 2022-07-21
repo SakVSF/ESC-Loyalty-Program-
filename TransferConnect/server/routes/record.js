@@ -1,5 +1,6 @@
 const { query } = require("express");
 const express = require("express");
+const {Validate} = require("./validation.js")
 
 // recordRoutes is an instance of the express router.
 
@@ -33,7 +34,8 @@ recordRoutes.route("/record").get(function (req, res) {
 
       res.json(result);
     });
-});
+})
+
 
 //returns an array of jsons of transactions
 recordRoutes.route("/transactions").get(function (req, res) {
@@ -50,6 +52,23 @@ recordRoutes.route("/transactions").get(function (req, res) {
 
       res.json(result);
     });
+})
+//takes an transac request and checks if the memberid format is correct.
+//inputs: regex_format and memberid to check
+//output: a 
+.post(function(req,res){
+  let db_connect = dbo.getDb();
+  const loyalty_currency_name = req.body.loyalty_currency_name;
+  const memberid = req.body.memberid;
+  const document = db_connect.collection("MembershipTest").findOne({"Loyalty Currency Name": loyalty_currency_name});
+  const regex_format = document["Validation Regex"];
+  const valid_check = Validate(regex_format, memberid);
+  if(valid_check){
+    res.status(200).send("Membership number is ok");
+  }
+  else{
+    res.status(200).send("Membership number does not match format");
+  }
 });
 
 // This section will help you get a single record by id
