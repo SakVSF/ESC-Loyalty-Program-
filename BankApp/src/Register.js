@@ -40,13 +40,13 @@ export const Register = () => {
       </div>
       <input
         className="password-register-input"
-        type="text"
+        type="password"
         required
         id="password_register"
       />
       <input
         className="confirmpassword-register-input"
-        type="text"
+        type="password"
         required
         id="confirmpassword_register"
       />

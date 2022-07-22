@@ -1,0 +1,118 @@
+.rectangle-button1 {
+  cursor: pointer;
+  border: 2px solid #000;
+  padding: 0;
+  background-color: #fff;
+  position: absolute;
+  top: 767px;
+  left: 693px;
+  box-sizing: border-box;
+  width: 125px;
+  height: 48px;
+}
+.background-memberpage-icon6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1512px;
+  height: 116px;
+  object-fit: cover;
+}
+.back-button5,
+.bank-client-login2 {
+  position: absolute;
+  font-size: 32px;
+  display: inline-block;
+}
+.bank-client-login2 {
+  top: calc(50% - 415px);
+  left: calc(50% - 756px);
+  color: #4ab2d3;
+  width: 265px;
+  height: 40px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+.back-button5 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 7px;
+  left: 9px;
+  font-family: Abhaya Libre;
+  color: #fff;
+  text-align: center;
+  width: 83px;
+  height: 27px;
+}
+.bank-client-login3,
+.bank-name-div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 329px;
+  height: 48px;
+}
+.bank-client-login3 {
+  top: 307px;
+  left: 591px;
+  font-size: 40px;
+  justify-content: center;
+}
+.bank-name-div {
+  top: 421px;
+  left: 508px;
+  text-align: left;
+}
+.rectangle-input2 {
+  border: 2px solid #000;
+  background-color: #fff;
+  position: absolute;
+  top: 469px;
+  left: 508px;
+  box-sizing: border-box;
+  width: 495px;
+  height: 47px;
+}
+.password-div1,
+.verify-div1 {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+.password-div1 {
+  top: 558px;
+  left: 508px;
+  text-align: left;
+  width: 329px;
+}
+.verify-div1 {
+  top: 719px;
+  left: 693px;
+  justify-content: center;
+  width: 125px;
+  cursor: pointer;
+}
+.rectangle-input3 {
+  border: 2px solid #000;
+  background-color: #fff;
+  position: absolute;
+  top: 606px;
+  left: 508px;
+  box-sizing: border-box;
+  width: 495px;
+  height: 47px;
+}
+.bank-client-login1 {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 982px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 30px;
+  color: #000;
+  font-family: Abhaya Libre;
+}

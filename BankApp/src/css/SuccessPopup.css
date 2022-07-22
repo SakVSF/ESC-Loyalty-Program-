@@ -1,9 +1,9 @@
 .your-div {
   position: absolute;
   top: 417px;
-  left: 102px;
+  left: 250px;
   display: inline-block;
-  width: 103.17px;
+  width: 500px;
   height: 55.79px;
 }
 .cross-success-button {
@@ -22,26 +22,31 @@
   background-position: top;
 }
 .ellipse-icon1,
-.line-icon {
+.tick {
   position: absolute;
   top: 0;
   left: 361.33px;
   width: 272.44px;
   height: 214.34px;
 }
-.line-icon {
+.tick {
   top: 49.32px;
   left: 469.76px;
   width: 104.64px;
   height: 103.86px;
 }
-.line-icon1,
+.tick,
 .success-div {
   position: absolute;
   top: 120.47px;
   left: 416.19px;
   width: 56.9px;
   height: 31.3px;
+}
+.tick{
+  width: 200px;
+  height:100px;
+  top: 10px;
 }
 .success-div {
   top: 252.51px;
@@ -64,7 +69,7 @@
 .account-div1,
 .to-your-div {
   top: 512.36px;
-  left: 23.24px;
+  left:300px;
   width: 311.13px;
   height: 49.91px;
 }
@@ -83,9 +88,9 @@
 }
 .we-will-send-you-an-update-on {
   position: absolute;
-  top: 678.26px;
+  top: 650px;
   left: 0;
-  font-size: 24px;
+  font-size: 30px;
   display: inline-block;
   width: 996.27px;
   height: 80.74px;

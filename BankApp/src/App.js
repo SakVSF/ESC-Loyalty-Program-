@@ -3,10 +3,11 @@ import {
   Route,
   useNavigationType,
   useLocation,
+  
 } from "react-router-dom";
 import { Homepage } from "./Homepage";
-import { MembershipValidation } from "./MembershipValidation";
-import { LoyaltyPrograms } from "./LoyaltyPrograms";
+import  MembershipValidation  from "./MembershipValidation";
+import LoyaltyPrograms  from "./LoyaltyPrograms";
 import { TransactionsPage } from "./TransactionsPage";
 import { useEffect } from "react";
 import { SignIn } from "./SignIn";
@@ -88,23 +89,28 @@ function App() {
   }, [pathname]);
 
   return (
+    <div>
+
     <Routes>
-      <Route path="/" element={<SignIn />} />
+      
+        <Route path="/" element={<SignIn />} />
 
-      <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-in" element={<SignIn />} />
 
-      <Route path="/sign-out" element={<SignOut />} />
+        <Route path="/sign-out" element={<SignOut />} />
 
-      <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register />} />
 
-      <Route path="/homepage" element={<Homepage />} />
+        <Route path="/homepage" element={<Homepage />} />
+    
+        <Route path="/membership-validation/:id" element={<MembershipValidation />} />
 
-      <Route path="/membership-validation" element={<MembershipValidation />} />
+        <Route path="/loyalty-programs" element={<LoyaltyPrograms />} />
 
-      <Route path="/loyalty-programs" element={<LoyaltyPrograms />} />
-
-      <Route path="/transactions-page" element={<TransactionsPage />} />
-    </Routes>
+       <Route path="/transactions-page" element={<TransactionsPage />} />
+  </Routes>
+   
+  </div>
   );
 }
 export default App;

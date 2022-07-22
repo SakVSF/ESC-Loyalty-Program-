@@ -2,13 +2,16 @@ import { useState, useCallback } from "react";
 import { SuccessPopup } from "./SuccessPopup";
 import { PortalPopup } from "./PortalPopup";
 import { useNavigate } from "react-router-dom";
-import { LPName } from "./LPName";
+
 import { EnterUsingPoints } from "./EnterUsingPoints";
 import { AvailablePoints } from "./AvailablePoints";
 import { UsingPoints } from "./UsingPoints";
 import { RemainingPoints } from "./RemainingPoints";
 import { Miles } from "./Miles";
 import "./css/TransferPopup.css";
+import ellipse1 from "./ellipse-1.png";
+import present from "./present-1@2x.png"
+
 
 export const TransferPopup = ({ onClose }) => {
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
@@ -30,14 +33,14 @@ export const TransferPopup = ({ onClose }) => {
     <>
       <div className="transfer-popup">
         <div className="rectangle-div" />
-        <img className="ellipse-icon" alt="" src="ellipse-1.svg" />
-        <img className="present-1-icon" alt="" src="present-1@2x.png" />
+        <img className="ellipse-icon" alt="" src={ellipse1}/>
+        <img className="present-1-icon" alt="" src={present} />
         <div className="transfer-your-miles">Transfer Your Miles</div>
         <div className="transfer-your-miles-to-your">
-          Transfer your miles to your{" "}
+          Transfer your miles to your account
         </div>
-        <LPName />
-        <div className="account-div">account</div>
+ 
+       
         <div className="total-rewards-to-transfer">
           Total Rewards to Transfer{" "}
         </div>
