@@ -1,0 +1,85 @@
+.primary-rect-button {
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 0;
+  background-color: #d9d9d9;
+  position: absolute;
+  top: 491px;
+  left: 568px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  width: 378px;
+  height: 85px;
+}
+.background-memberpage-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1512px;
+  height: 116px;
+  object-fit: cover;
+}
+.transferconnect-homepage-div {
+  position: absolute;
+  top: calc(50% - 433px);
+  left: calc(50% - 756px);
+  color: #4ab2d3;
+  display: inline-block;
+  width: 392px;
+  height: 40px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+.welcome-to-transferconnect {
+  position: absolute;
+  top: 316px;
+  left: 553px;
+  font-size: 48px;
+  display: inline-block;
+  width: 407px;
+  height: 109px;
+}
+.bank-client-login {
+  position: absolute;
+  top: 503px;
+  left: 593px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 329px;
+  height: 61px;
+}
+.primary-rect-button1 {
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 0;
+  background-color: #d9d9d9;
+  position: absolute;
+  top: 630px;
+  left: 568px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  width: 378px;
+  height: 85px;
+}
+.loyalty-partner-login {
+  position: absolute;
+  top: 642px;
+  left: 593px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 329px;
+  height: 61px;
+}
+.tcapp-landing-page {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 982px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 32px;
+  color: #000;
+  font-family: Abhaya Libre;
+}

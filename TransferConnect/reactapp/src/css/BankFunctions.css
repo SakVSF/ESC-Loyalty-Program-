@@ -1,0 +1,174 @@
+.background-memberpage-icon3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1512px;
+  height: 116px;
+  object-fit: cover;
+}
+.back-button2,
+.bank-interface-div1 {
+  position: absolute;
+  display: inline-block;
+}
+.bank-interface-div1 {
+  top: calc(50% - 415px);
+  left: calc(50% - 747px);
+  width: 405px;
+  height: 40px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+.back-button2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 7px;
+  left: 9px;
+  font-size: 32px;
+  font-family: Abhaya Libre;
+  color: #fff;
+  text-align: center;
+  width: 83px;
+  height: 27px;
+}
+.welcome-bank-div {
+  position: absolute;
+  top: 234px;
+  left: 173px;
+  font-size: 40px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  width: 329px;
+  height: 48px;
+}
+.gojet-rect-icon {
+  position: absolute;
+  top: 651px;
+  left: 454px;
+  border-radius: 20px;
+  width: 647px;
+  height: 67px;
+  cursor: pointer;
+}
+.query-membership-points {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 660px;
+  left: 501px;
+  font-size: 40px;
+  font-family: Abhaya Libre;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 553px;
+  height: 48px;
+}
+.gojet-rect-icon1,
+.gojet-rect-icon2 {
+  position: absolute;
+  border-radius: 20px;
+  width: 647px;
+  height: 67px;
+}
+.gojet-rect-icon1 {
+  top: 749px;
+  left: 454px;
+  cursor: pointer;
+}
+.gojet-rect-icon2 {
+  top: 357px;
+  left: 456px;
+}
+.query-transaction-status,
+.viewmodify-list-of-loyalty-pr {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 367px;
+  left: 458px;
+  font-size: 40px;
+  font-family: Abhaya Libre;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 644px;
+  height: 48px;
+}
+.query-transaction-status {
+  top: 758px;
+}
+.gojet-rect-icon3 {
+  position: absolute;
+  top: 455px;
+  left: 455px;
+  border-radius: 20px;
+  width: 647px;
+  height: 67px;
+}
+.viewmodify-members-lists {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 465px;
+  left: 456px;
+  font-size: 40px;
+  font-family: Abhaya Libre;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 645px;
+  height: 48px;
+}
+.gojet-rect-icon4 {
+  position: absolute;
+  top: 553px;
+  left: 455px;
+  border-radius: 20px;
+  width: 647px;
+  height: 67px;
+}
+.viewmodify-earn-rate {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 563px;
+  left: 456px;
+  font-size: 40px;
+  font-family: Abhaya Libre;
+  color: #000;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 645px;
+  height: 48px;
+}
+.bank-functions-div {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 982px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 32px;
+  color: #4ab2d3;
+  font-family: Abhaya Libre;
+}
