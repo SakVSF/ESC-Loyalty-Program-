@@ -1,6 +1,6 @@
 # BankApp
 Bank App for Loyalty Program Marketplace (50.003)
-# TransferConnect Launch Guide
+# BankApp Launch Guide
 
 ## Installation
 2 options for installation are available below, choose either one to proceed.
