@@ -1,3 +1,5 @@
+//depreciated
+
 import React from "react";
 
 let Client = require('ssh2-sftp-client');
