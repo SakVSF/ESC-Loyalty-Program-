@@ -12,9 +12,11 @@ import { TransactionsPage } from "./TransactionsPage";
 import { useEffect } from "react";
 import { SignIn } from "./SignIn";
 import { SignOut } from "./SignOut";
-import { Register } from "./Register";
+
 
 function App() {
+
+
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
@@ -46,10 +48,7 @@ function App() {
         metaDescription = "Sign Out";
         break;
 
-      case "/register":
-        title = "Register";
-        metaDescription = "Register";
-        break;
+      
 
       case "/membership-validation":
         title = "MembershipValidation";
@@ -68,8 +67,8 @@ function App() {
         metaDescription = "Sign In";
         break;
       default:
-        title = "Sign In";
-        metaDescription = "Sign In";
+        title = "Bank App";
+        metaDescription = "Bank App";
         break;
 
     }
@@ -99,7 +98,7 @@ function App() {
 
         <Route path="/sign-out" element={<SignOut />} />
 
-        <Route path="/register" element={<Register />} />
+     
 
         <Route path="/homepage" element={<Homepage />} />
     

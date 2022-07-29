@@ -1,102 +1,185 @@
 import { useState, useCallback, useEffect} from "react";
 import { TransferPopup } from "./TransferPopup";
 import { PortalPopup } from "./PortalPopup";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 //import { LPName } from "./LPName_mem";
 import "./css/MembershipValidation.css";
-import axios from 'axios';
-import logo from "./background-homepage@2x.png"
 
-
-const MembershipValidation = ({match}) => {
-
-  const initialValues = { username: "", memberid: "", confirm_memberid: "" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-
-  const [state, setState]= useState({loyalty_currency_name:""})
+import logo from "./background-homepage@2x.png";
+import bg from "./bg.jpg";
 
 
 
-  const [isSubmit, setIsSubmit] = useState(false);
+
+const MembershipValidation = () => {
+
+  //const initialValues = { username: "", memberid: "", confirm_memberid: "" };
+ // const [formValues, setFormValues] = useState(initialValues);
+  //const [formErrors, setFormErrors] = useState({});
+
+  const [state, setState]= useState({username:"", memberid:"", confirm_memberid:""})
+
+
+
+  //const [isSubmit, setIsSubmit] = useState(false);
   const [isValidated, setIsValidated] = useState(false);
 
   const [isTransferPopupOpen, setTransferPopupOpen] = useState(false);
   const navigate = useNavigate();
-
+  const params = useParams();
   
 
 
   //const id= useParams();
   const [products, SetProducts] = useState({});
-
+/*
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+    setState({ ...state, [name]: value });
 
     
     //setState({ ...state, [name]:value});
 
   };
+  */
 
-  const handleSubmit = (e) => {
+  async function handleSubmit (e) {
     e.preventDefault();
 
-
-    //setState(...state, ["loyalty_currency_name"]: products.name)
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-
-    if(Object.keys(formErrors).length === 0){
       const userData = {
-        loyalty_currency_name: state.loyalty_currency_name,
-        memberid: formValues.memberid
+   
+        memberid: state.memberid,
+        loyalty_currency_name: products.LoyaltyProgramName,
+      
       };
-      axios.post("https://localhost:5000", userData).then((response) => {
-        console.log(response.status);
+    
+     
+      const response= await fetch(`http://localhost:5000/transactions`, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+       
+      }
+      
+      );
+   
+
+      const code = response.status;
+      if(code===200){
+        setIsValidated(true);
+      }
+      if(code===304){
+        setIsValidated(false);
+      }
+
+      /*
+      if (!response.ok) {
+        const message = `An error has occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+      
+  
+      const record = await response.json();
+      window.alert("reached record");
+     
+      window.alert(JSON.stringify(record));
+      setIsValidated(true);
+*/
+      
+
+    }
+
+    
+    //setState(...state, ["loyalty_currency_name"]: products.name)
+    //setFormErrors(validate(formValues));
+    //setIsSubmit(true);
+
+    //if(Object.keys(formErrors).length === 0){
+      
+/*
+       axios.post("https://localhost:5000/transactions", userData).then((response) => {
+        window.alert(response.status);
         console.log(response.data);
-        if(response.data==="Membership number is ok"){
+        if(response.ok){
+          window.alert("ok");
           setIsValidated(true);
         }
         else{
-          setIsValidated(false);
+          window.alert("!!!");
+          setIsValidated(true);
         }
       });
 
-    }
+   // }
+*/
+
+ 
 
 
-  };
-
-  
   useEffect(() => { 
-    fetchProduct();
-    console.log(formErrors);
-    if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
-    }
+  const fetchProduct = async () => {
+      //  console.log(match.params.id);
+      const id = params.id.toString();
+      const response = await fetch(`http://localhost:5000/record/${params.id.toString()}`);
+      if (!response.ok) {
+        const message = `An error has occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
   
-  }, [formErrors]);  // eslint-disable-line react-hooks/exhaustive-deps
+      const record = await response.json();
+      if (!record) {
+        window.alert(`Record with id ${id} not found`);
+        navigate("/");
+        return;
+      }
+
+      SetProducts(record);
+     window.alert(JSON.stringify(record));
+
+    }
+
+    fetchProduct();
+
+    return;
+  }, [params.id,  navigate]);
+/*
+      await   axios
+        .get(
+         `http://localhost:5000/record/${_id}`
+          //`https://shoppingapiacme.herokuapp.com/shopping/?id=${match.params.id}`
+        )
+        .then((res) => {
+          SetProducts(res.data);
+          
+        })
+        .catch((err) => console.log(err));
+      };*/
+
+
+
+    //console.log(formErrors);
+    //if (Object.keys(formErrors).length === 0 && isSubmit) {
+    ////  console.log(formValues);
+    //}
+
+  //}, [formErrors]);  // eslint-disable-line react-hooks/exhaustive-deps
   
 
-    const fetchProduct = async () => {
-      axios
-      .get(
-        `http://localhost:5000/record/?id=${match.params.id}`
-      )
-      .then((res) => {
-        SetProducts(res.data);
-        setState({loyalty_currency_name: res.data.LoyaltyProgramName});
-      })
-      .catch((err) => console.log(err));
-    };
+
+   
+
+    
       
      
 
 
 
  
-
+/*
 
   const validate = (values) => {
     const errors = {};
@@ -128,7 +211,7 @@ const MembershipValidation = ({match}) => {
     }
     return errors;
   }; 
-
+*/
 
   const openTransferPopup = useCallback(() => {
     setTransferPopupOpen(true);
@@ -142,137 +225,177 @@ const MembershipValidation = ({match}) => {
     navigate("/loyalty-programs");
   }, [navigate]);
 
-
+  function updateState(value) {
+    return setState((prev) => {
+      return { ...prev, ...value };
+    });
+  }
+  
 
 
   return (
 
 
-    <div className="membership-validation-div">
+    <div>
 
-      <img
-        className="background-homepage-icon"
-        alt=""
-        src={logo}
-      />
-          
-                
-        
-      
+        <img  class="bg" alt="" src={bg}/>
 
-        <div className="link-your-div">Link your account to start </div>
-        <div className="transfer-miles-div">Transfer Miles</div>
-        <div className="abc-bank-div1">
-            <b>ABC</b>
-            <span> Bank </span>
-          </div>
-        <div className="once-linked-we-will-use-this">
-                  Once linked, we will use this membership for your future mile
-                  transfers
+
+        <div className = "container2">
+          <div className="grid-container2">
+              <div className="card2">
+                        <div>
+                          <b>ABC Bank</b>
+                        </div>
+                    </div>
+
+              
+                <div className="card2">
+                    <div className="membership-validation">
+                      Membership Validation{" "}
+                    </div>
+                </div>
+
+              
+
+            </div>
         </div>
 
-      
+
+        <div>
+              <img   className="background-homepage1-icon"
+              alt=""
+                            src={logo}
+                          />
+        </div>
 
 
       
-          { isValidated ? (
-            <div>
-                <div  classname="success-message">Membership Validated! Click to transfer points.</div>
-                <button  classname="success-button" onClick={openTransferPopup}>Transfer</button>
-            </div>
-          ) : (<div className="success message">Memership Validation failed</div>)
-        }
-          
-
-      <div className="container">
+      <div className="memcontainer1">
+        <div className="memgrid-container1">
         
         
 
           <form onSubmit={handleSubmit}>
 
+          <div className="memcard1">
+          Link your account to transfer miles </div>
+
             
-              <div className="form">
-                  <div className="field">
-                    <b className="primary-cardholder-b">Primary Cardholder</b>
+              <div className="memcard1">
+                  <div className="membox1">
+                     
+                     <b className="primary-cardholder-b">Primary Cardholder</b>
+
+                    </div>
+
+                  <div className="membox1">
+
                           <input
 
                             className="primary-rect-input"
                             type="text"
-                            name="username"
-                            placeholder="Primary Cardholder"
-                            value={formValues.username}
-
-                            onChange={handleChange}
                             required
+                            name="username"
+                            placeholder="Letters only"
+                            value={state.username}
+
+                            onChange={(e) => updateState({ username: e.target.value })}
+                         
 
                          />
                   </div>
 
-                  <p className="username-error">{formErrors.username}</p>
+                </div>
+
+                
 
 
-                  <div className="field">
-                    <b className="membership-number">Membership Number</b>
+              <div className="memcard1">
+
+                  <div className="membox1">
+                      <b className="membership-number">Membership Number</b>
+
+                  </div>
+
+                  <div className="membox1">
                     <input
                       className="memberhsip-no-rect-input"
                     
                       type="memberid"
                       name="memberid"
-                      placeholder="Membership Number"
-                      value={formValues.memberid}
+                      placeholder="Digits only"
+                      value={state.memberid}
                       
-                      onChange={handleChange}
+                      onChange={(e) => updateState({ memberid: e.target.value })}
                     //  className="confirm-no-rect-input"
                       required
                     />
                   </div>
+              </div>
 
+              <div className="memcard1">
+                  <div className="membox1">
 
-                  <p className="memberid-error">{formErrors.memberid}</p>
+                      <b className="confirm-membership-number">Confirm Membership Number</b>
+                   </div>
 
-
-                  <div className="field">
-                    <b className="confirm-membership-number">Confirm Membership Number</b>
+                  <div className="membox1"> 
+                    
                     <input
                       className="confirm-no-rect-input"
                       type="memberid"
                       name="confirm_memberid"
-                      placeholder="Confirm Membership Number"
-                      value={formValues.confirm_memberid}
-                      onChange={handleChange}
+                      placeholder="Digits only"
+                      value={state.confirm_memberid}
+                      onChange={(e) => updateState({ confirm_memberid: e.target.value })}
                       required
                     />
                   </div>
 
-                  <p className="confirm-memberid-error">{formErrors.memberid}</p>
-                  <button className="verify-rect-button">Submit</button>
+              </div>
 
-                  
-                 
-            </div>
+
+              <div className="memcard1">
+                  <div className="membox1">
+                
+                  <button type="Submit" className="verify-rect-button">Verify</button>
+   
+                  </div>
+
+              </div>
            
           </form>
 
+
+          
+          { isValidated ? (
+
+            <div className="memcard1">
+             <div className="membox1">
+                <div >Membership Validated! </div>
+                <button classname="verify-rect-button"onClick={openTransferPopup}>Click to Transfer</button>
+            </div>
+            </div>
+          ) : 
+          (<div className="memcard1">
+            <div className="membox1"> Validating
+            </div>
+            
+            </div>)
+        }
+      
+          
+
+
         </div>
 
-        
+    </div>
 
 
-      
-        
-        
-        
 
-     
-            
-
-        
-        <button
-            className="back-button"
-            id="back_membership"
-            onClick={onBackButtonClick}
-          >
-            Back
+        <button className="back-button1" id="back_lp" onClick={onBackButtonClick}>
+              Back
           </button>
         
 
@@ -285,7 +408,9 @@ const MembershipValidation = ({match}) => {
             <TransferPopup onClose={closeTransferPopup} />
           </PortalPopup>
                 )}
-
+        
+        <img  class="membg" alt="" src="bg.jpg"/>
+   
 
    </div>
   );
@@ -331,5 +456,7 @@ const [data, setData] = useState([]);
         </div>
 
            <div className="account-to-start">account to start</div>
+
+              <p className="memberid-error">{formErrors.memberid}</p>
 
 */

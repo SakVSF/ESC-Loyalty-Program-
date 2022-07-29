@@ -1,112 +1,75 @@
-.your-div {
-  position: absolute;
-  top: 417px;
-  left: 250px;
-  display: inline-block;
-  width: 500px;
-  height: 55.79px;
-}
-.cross-success-button {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  left: 932.46px;
-  width: 72.54px;
-  height: 55.79px;
-  background-image: url(../../public/cross-success@2x.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
-}
-.ellipse-icon1,
-.tick {
-  position: absolute;
-  top: 0;
-  left: 361.33px;
-  width: 272.44px;
-  height: 214.34px;
-}
-.tick {
-  top: 49.32px;
-  left: 469.76px;
-  width: 104.64px;
-  height: 103.86px;
-}
-.tick,
-.success-div {
-  position: absolute;
-  top: 120.47px;
-  left: 416.19px;
-  width: 56.9px;
-  height: 31.3px;
-}
-.tick{
-  width: 200px;
-  height:100px;
-  top: 10px;
-}
-.success-div {
-  top: 252.51px;
-  left: 204.58px;
-  font-size: 40px;
-  display: inline-block;
-  width: 586.8px;
-  height: 148.28px;
-}
-.account-div1,
-.miles-are-on-their-way,
-.to-your-div {
-  position: absolute;
-  top: 417px;
-  left: 429px;
-  display: inline-block;
-  width: 540.05px;
-  height: 57.26px;
-}
-.account-div1,
-.to-your-div {
-  top: 512.36px;
-  left:300px;
-  width: 311.13px;
-  height: 49.91px;
-}
-.account-div1 {
-  top: 512px;
-  left: 662px;
-  width: 257.93px;
-  height: 63.13px;
-}
-.we-will-send {
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-.alternatively-you-can {
-  margin: 0;
-}
-.we-will-send-you-an-update-on {
-  position: absolute;
-  top: 650px;
-  left: 0;
-  font-size: 30px;
-  display: inline-block;
-  width: 996.27px;
-  height: 80.74px;
-}
+
 .success-popup {
-  position: relative;
+
   background-color: #fff;
   border: 1px solid #000;
+
   box-sizing: border-box;
-  width: 1005px;
-  height: 759px;
+  width:700px;
+  height:700px;
+
   overflow: hidden;
   max-width: 90%;
   max-height: 90%;
   text-align: center;
-  font-size: 32px;
+  font-size: 25px;
   color: #000;
-  font-family: Abhaya Libre;
+}
+.scontainer1{
+  font-family: Alegreya;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  font-size: 20px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+}
+
+.sgridcontainer{
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+
+}
+
+.scard1{
+  margin-bottom: 40px;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+  width: 500px;
+  border-radius: 5px;
+
+}
+
+.sbox1{
+  margin-top: 20px;
+
+  font-size: 20px;
+  font-family: Alegreya;
+  justify-content: "center";
+
+}
+
+.success-button{
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+  background-color: #e9f8f8;
+  color:rgb(69, 19, 198);
+  width:200px;
+  height:50px;
+  border-color: #e9f8f8;
+
+
+
 }

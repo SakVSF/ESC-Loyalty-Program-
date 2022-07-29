@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Miles1 } from "./Miles1";
+
 import { LPName1 } from "./LPName1";
 import "./css/SuccessPopup.css";
-import ellipse1 from "./ellipse-11.png";
+
 import tick from "./tick.png";
 
 export const SuccessPopup = ({ onClose }) => {
@@ -17,33 +17,77 @@ export const SuccessPopup = ({ onClose }) => {
 
 
   const onCrossSuccessButtonClick = useCallback(() => {
-    navigate("/loyalty-programs");
+    navigate("/homepage");
   }, [navigate]);
 
   return (
-    <div className="success-popup">
-      <div className="your-div">Your miles are on their way to your account</div>
-      <button
-        className="cross-success-button"
-        id="close_Successpopup"
-        onClick={onCrossSuccessButtonClick}
-      />
+
+    <div className="success-popup" >
+
+        <div className="scontainer1">
+        
+       
+          <div className="sgridcontainer1">
+
+         
+            <div className="scard1">
+                <img className="ellipse-icon" alt="" src={tick}/>
+
+            </div>
+
+            <div className="scard1">
+                <div className="sbox1">
+
+                          <div >
+                          Success!
+                          </div>
+
+
+                </div>
+
+                <div className="sbox1">
+
+                      <div >
+                      Your miles are on their way to your account.
+                      </div>
+
+
+                </div>
+
+            </div>
+
+
+          
+
+        <div className="scard1">
+             <div className="sbox1">
+
+                <div >
+
+                  You can view the status of your transaction via polling.
+
+                </div>
+
+              <div className="sbox1">
+
+                      <button
+                    className="success-button"
+                    id="close_Successpopup"
+                    onClick={onCrossSuccessButtonClick}
+                  >Go to Home</button>
      
-      <img className="tick" alt="" src={tick}/>
-      <div className="success-div">Success!</div>
+                </div> 
+             </div>   
+     
       
+        </div>
+        </div>
+  </div>
      
       
     
  
-      <div className="we-will-send-you-an-update-on">
-        <p className="we-will-send">
-          We will send you an update on your transaction status soon.{" "}
-        </p>
-        <p className="alternatively-you-can">
-          Alternatively, you can poll for status on your transaction page.
-        </p>
-      </div>
+     
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useCallback } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import "./css/SignIn.css";
+import "./bg.jpg";
 
 export const SignIn = () => {
   const navigate = useNavigate();
@@ -9,12 +10,10 @@ export const SignIn = () => {
     navigate("/homepage");
   }, [navigate]);
 
-  const onDontHaveAnClick = useCallback(() => {
-    navigate("/register");
-  }, [navigate]);
 
   return (
     <div>
+      <img  class="bg" alt="" src="bg.jpg"/>
 
 
       <div className = "container2">
@@ -108,17 +107,6 @@ export const SignIn = () => {
                       </button>
                       </div>
 
-            <div className="box1">
-                Don’t have an account?
-              <Link
-                className="dont-have-an-account-registe"
-                to="/register"
-                onClick={onDontHaveAnClick}
-              >
-                  Register!
-              </Link>
-
-              </div>
             
 
 

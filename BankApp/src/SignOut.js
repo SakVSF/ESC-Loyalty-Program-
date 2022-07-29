@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import "./css/SignOut.css";
 
 export const SignOut = () => {
@@ -10,38 +10,61 @@ export const SignOut = () => {
   }, [navigate]);
 
   return (
-    <div className="sign-out-div">
-      <img
-        className="background-homepage-icon3"
-        alt=""
-        src="background-homepage@2x.png"
-      />
-      <div className="loyalty-program-marketplace2">
-        Loyalty Program MarketPlace{" "}
+    
+    <div>
+      <img  class="bg" alt="" src="bg.jpg"/>
+
+
+      <div className = "container2">
+        <div className="grid-container2">
+            <div className="card2">
+                      <div>
+                        <b>ABC Bank</b>
+                      </div>
+                  </div>
+
+             
+              <div className="card2">
+                  <div className="loyalty-program-marketplace">
+                    Loyalty Program MarketPlace{" "}
+                  </div>
+              </div>
+
+             
+
+          </div>
       </div>
-      <div className="abcbank-header-div3">
-        <b>ABC</b>
-        <span> Bank </span>
+
+
+
+      <div>
+            <img   className="background-homepage1-icon"
+            alt=""
+                          src="background-homepage@2x.png"
+                        />
       </div>
-      <img
-        className="homepage-picture-icon3"
-        alt=""
-        src="homepage-picture@2x.png"
-      />
-      <div className="customer-engagement-made-simp3">
-        Customer Engagement. Made Simple.
-      </div>
-      <div className="successfully-signed-out">
-        <p className="successfully-signed-out1">Successfully signed out! </p>
-      </div>
-      <Link
-        className="return-to-sign-in"
-        to="/sign-in"
-        id="gotoSignin"
-        onClick={onReturnToSignClick}
-      >
-        Return to Sign In{" "}
-      </Link>
+
+      
+      
+      <div className="container1">
+        <div className="signgrid-container">
+
+        <div className="cardsignout">
+        <div className="successfully-signed-out1">Successfully signed out! </div>
+            </div>
+            <div>
+            <button
+              className="return-to-sign-in"
+             
+              id="gotoSignin"
+              onClick={onReturnToSignClick}
+            >
+              Sign In
+            </button>
+            </div>
+            </div>
+
+            </div>
     </div>
   );
 };

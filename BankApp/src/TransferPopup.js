@@ -3,19 +3,17 @@ import { SuccessPopup } from "./SuccessPopup";
 import { PortalPopup } from "./PortalPopup";
 import { useNavigate } from "react-router-dom";
 
-import { EnterUsingPoints } from "./EnterUsingPoints";
-import { AvailablePoints } from "./AvailablePoints";
-import { UsingPoints } from "./UsingPoints";
-import { RemainingPoints } from "./RemainingPoints";
-import { Miles } from "./Miles";
 import "./css/TransferPopup.css";
-import ellipse1 from "./ellipse-1.png";
-import present from "./present-1@2x.png"
+import logo from "./popuplogo.PNG";
+
 
 
 export const TransferPopup = ({ onClose }) => {
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [points, setPoints]= useState("50000");
+  const [remaining ,setRemaining ] =useState(50000-Number(points));
 
   const openSuccessPopup = useCallback(() => {
     setSuccessPopupOpen(true);
@@ -31,44 +29,117 @@ export const TransferPopup = ({ onClose }) => {
 
   return (
     <>
-      <div className="transfer-popup">
-        <div className="rectangle-div" />
-        <img className="ellipse-icon" alt="" src={ellipse1}/>
-        <img className="present-1-icon" alt="" src={present} />
-        <div className="transfer-your-miles">Transfer Your Miles</div>
-        <div className="transfer-your-miles-to-your">
-          Transfer your miles to your account
-        </div>
- 
+      <div className="transfer-popup" >
+
+        <div className="tcontainer1">
+        
        
-        <div className="total-rewards-to-transfer">
-          Total Rewards to Transfer{" "}
-        </div>
-        <EnterUsingPoints />
-        <AvailablePoints />
-        <UsingPoints />
-        <RemainingPoints />
-        <Miles />
-        <button
-          className="rectangle-button"
+          <div className="tgridcontainer1">
+
+         
+            <div className="tcard1">
+                <img className="ellipse-icon" alt="" src={logo}/>
+
+            </div>
+
+            <div className="tcard1">
+                <div className="tbox1">
+
+                <div >
+                    Transfer your miles 
+                </div>
+
+                </div>
+
+            </div>
+
+            <div className="tcard1">
+                <div className="tbox1">
+
+                      <div classname="labelpoints" >
+                          Using Points
+                      </div>
+
+                </div>
+                
+                <div className="tbox1">
+                      <input
+
+                                  className="inputfield"
+                                  type="text"
+                                  required
+                                  
+                                  placeholder="Points to transfer"
+                                  value={points}
+
+                                  onChange={(e) => 
+                                   {setPoints(e.target.value);
+                                    setRemaining(50000-Number(e.target.value));
+                                    }
+                                }
+                                    InputLabelProps={{
+                                      shrink: true
+                                    }}
+                                    variant="filled"
+                                  
+                                
+                                                        
+
+                              />
+
+                </div>
+
+            </div>
+
+            <div className="tcard1">
+                <div className="tbox1">
+                   <div   classname="labelpoints" >
+                          Points Remaining
+                      </div>
+
+                      
+                </div>
+                
+                <div className="tbox1">
+                <input className="inputfield"
+                      readOnly
+                      value={remaining}/>
+
+                </div>
+
+                <div className="tbox1">
+                <button
+          className="transferbutton"
           id="completeTransfer"    /* open success popup only after successful transaction */
           onClick={openSuccessPopup}
-        />
-        <b className="complete-transfer-b">Complete Transfer</b>
-        <b className="all-transfers-are-final">All transfers are final</b>
-        <div className="points-div">points</div>
-        <div className="div">=</div>
-        <div className="div1">=</div>
-        <div className="available-div">AVAILABLE</div>
-        <div className="remaining-div">REMAINING</div>
-        <div className="using-div">USING </div>
-        <div className="miles-div1">miles</div>
-        <div className="div2">-</div>
-        <button
-          className="cross-1-button"
-          id="close_Transferpopup"
-          onClick={onCross1ButtonClick}
-        />
+        > Transfer</button>
+</div>
+
+            </div>
+              
+     
+
+
+
+
+
+                
+
+        </div>
+
+    </div>
+
+
+            
+
+    
+       
+       
+        
+      
+ 
+     
+   
       </div>
       {isSuccessPopupOpen && (
         <PortalPopup

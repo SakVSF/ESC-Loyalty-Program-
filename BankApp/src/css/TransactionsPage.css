@@ -91,3 +91,11 @@
   font-size: 48px;
   color: #000;
 }
+.bg{
+  top:0px;
+  height:1500px;
+  position: absolute;
+  width: 100%;
+  z-index: -10;
+  background-size: cover;
+}

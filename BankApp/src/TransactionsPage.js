@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Status } from "./Status";
+
 import "./css/TransactionsPage.css";
 
 export const TransactionsPage = () => {
@@ -14,31 +14,53 @@ export const TransactionsPage = () => {
   }, [navigate]);
 
   return (
-    <>
-      <div className="transactions-page-div1">
-        <img
-          className="background-transaction-icon"
-          alt=""
-          src="background-transaction@2x.png"
-        />
-        <div className="transactions-page-div2">Transactions Page</div>
-        <div className="abc-bank-div3">
-          <b>ABC</b>
-          <span> Bank </span>
-        </div>
-        <div className="miles-div">Miles</div>
-        <div className="transaction-status-div">Transaction Status </div>
-        <Status />
-        <div className="program-div">Program</div>
+    <div>
+
+
+
+          <div className = "lpcontainer1">
+
+          <div className="lpgrid-container1">
+
+              <div className="lpcard1">
+                        <div>
+                          <b>ABC Bank</b>
+                        </div>
+                    </div>
+
+              
+                <div className="lpcard1">
+                    <div className="loyalty-programs">
+                      Transaction Status
+                    </div>
+                </div>
+
+              
+
+            </div>
+          </div>
+
+
+          <div>
+        <img   className="background-homepage1-icon"
+        alt=""
+                      src="background-homepage@2x.png"
+                    />
+</div>
+
+     
         <button
-          className="back-button2"
+          className="back-button1"
           id="back_transaction"
           onClick={onBackButtonClick}
         >
           Back
         </button>
+        
+        <img  class="bg" alt="" src="bg.jpg"/>
+   
       </div>
       
-    </>
+
   );
 };

@@ -1,189 +1,86 @@
-.rectangle-div {
-  position: absolute;
-  top: 573.42px;
-  left: 0;
-  background-color: #dcd9d9;
-  width: 1552.06px;
-  height: 192.93px;
-}
-.ellipse-icon,
-.present-1-icon {
-  position: absolute;
-  top: 0;
-  left: 573.85px;
-  width: 405.09px;
-  height: 270.75px;
-}
-.present-1-icon {
-  top: 40.53px;
-  left: 650.09px;
-  width: 254.36px;
-  height: 175.09px;
-  object-fit: cover;
-}
-.transfer-your-miles {
-  position: absolute;
-  top: 321px;
-  left: 347.12px;
+
+
+.tcontainer1 {
+ 
+  font-family: Alegreya;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+
   font-size: 40px;
-  text-align: center;
-  display: inline-block;
-  width: 857.28px;
-  height: 163.74px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
 }
-.account-div,
-.total-rewards-to-transfer,
-.transfer-your-miles-to-your {
-  position: absolute;
-  top: 433.02px;
-  left: 531.43px;
-  font-size: 32px;
-  text-align: center;
-  display: inline-block;
-  width: 514.04px;
-  height: 40.23px;
+.tbox1 {
+  margin-top: auto;
+
+  font-size: 35px;
+  font-family: Alegreya;
+  justify-content: "center";
+
 }
-.account-div,
-.total-rewards-to-transfer {
-  top: 510.57px;
-  left: 875.38px;
-  width: 376.83px;
-  height: 69.71px;
-}
-.total-rewards-to-transfer {
-  top: 794.4px;
-  left: 252.81px;
-  font-size: 36px;
-  width: 1048.05px;
-  height: 84.3px;
-}
-.rectangle-button {
+.transferbutton{
   cursor: pointer;
-  border: 1px solid #000;
   padding: 0;
-  background-color: #28b669;
-  position: absolute;
-  top: 1069.47px;
-  left: 343.49px;
+  font-size: 20px;
+  background-color: #cdf5f4;
+  width:100px;
+  height:50px;
+  border-color: #b8d2e7;
   border-radius: 10px;
-  box-sizing: border-box;
-  width: 866.7px;
-  height: 95.65px;
+
+ 
+
 }
-.complete-transfer-b {
-  position: absolute;
-  top: 1096.78px;
-  left: 647.43px;
-  font-size: 30px;
-  display: inline-block;
-  width: 259.18px;
-  height: 45.17px;
-}
-.all-transfers-are-final,
-.div,
-.div1,
-.points-div {
-  position: absolute;
-  top: 1189.23px;
-  left: 660.96px;
-  display: inline-block;
-  width: 232.12px;
-  height: 36.77px;
-}
-.div,
-.div1,
-.points-div {
-  top: 965px;
-  left: 400px;
-  font-size: 20px;
-  width: 60px;
-  height: 21px;
-}
-.div,
-.div1 {
-  top: 895.96px;
-  left: 757.76px;
-  font-size: 36px;
-  width: 37.68px;
-  height: 12.97px;
-}
-.div1 {
-  top: 636.64px;
-  left: 958.65px;
-  font-size: 40px;
-}
-.available-div,
-.remaining-div {
-  top: 691.76px;
-  color: #565050;
-  width: 247.29px;
-  height: 22.7px;
-}
-.available-div {
-  position: absolute;
-  left: 181.35px;
-  display: inline-block;
-}
-.remaining-div {
-  left: 1128.13px;
-}
-.div2,
-.miles-div1,
-.remaining-div,
-.using-div {
-  position: absolute;
-  display: inline-block;
-}
-.using-div {
-  top: 691.76px;
-  left: 683px;
-  color: #565050;
-  width: 247.29px;
-  height: 22.7px;
-}
-.div2,
-.miles-div1 {
-  top: 965px;
-  left: 1097px;
-  font-size: 20px;
+.tcard1 {
+  margin-bottom: 20px;
+  justify-content: center;
   text-align: center;
-  width: 56px;
-  height: 21px;
+  padding: 3px;
+  width: 500px;
+  border-radius: 5px;
+
 }
-.div2 {
-  top: 617.73px;
-  left: 460.07px;
-  font-size: 48px;
-  width: 80.08px;
-  height: 63.23px;
+.tgrid-container1 {
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
 }
-.cross-1-button {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  top: 40.53px;
-  left: 1447.02px;
-  width: 105.98px;
-  height: 61.61px;
-  background-image: url(../../public/cross-1@2x.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top;
+.inputfield{
+  height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #b8d2e7;
+    font-size:20px;
+
 }
+.labelpoints{
+  font-size:20px;
+}
+
 .transfer-popup {
-  position: relative;
+
   background-color: #fff;
   border: 1px solid #000;
   box-sizing: border-box;
-  width: 1553px;
-  height: 1226px;
+
   overflow: hidden;
   max-width: 90%;
   max-height: 90%;
-  text-align: left;
-  font-size: 24px;
-  color: #000;
-  font-family: Abhaya Libre;
+  width:700px;
+  height:700px;
+
+
+
+ 
 }

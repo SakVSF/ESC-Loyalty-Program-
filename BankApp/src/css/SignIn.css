@@ -1,210 +1,217 @@
-.background-homepage1-icon{
-  top:150px;
+.background-homepage1-icon {
+    top: 150px;
 
 
-  width:100%;
+    width: 100%;
 
-  height: 170px;
-  margin:0;
-  padding:0;
-  z-index:-5;
-  position:absolute;
+    height: 170px;
+    margin: 0;
+    padding: 0;
+    z-index: -5;
+    position: absolute;
 }
-  .loyalty-program-marketplace {
-   
-   
-    position:relative;
+.loyalty-program-marketplace {
+
+
+    position: relative;
     color: #4ab2d3;
-   
+
     font-size: 45px;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     -webkit-text-stroke: 1px #000;
-  }
+}
 
-  .container1{
-    background-color: white;
-     font-family: Alegreya;
-      
-     justify-content: center;
-     display: flex;
-     align-items:center;
-      margin-top: 150px;
+.container1 {
+ 
+    font-family: Alegreya;
 
-      font-size: 40px;
-      width:"lg"; 
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      grid-template-rows: repeat(2, 100px);  
-      grid-gap: 5px; 
-
-  }
-
-  .container2{
-
-  
-     justify-content: center;
-     display: flex;
-     align-items:center;
-      
-     margin-top: 20px;
-    
-     font-size: 40px;
-     width:"lg"; 
-     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-     grid-template-rows: repeat(2, 100px);  
-     grid-gap: 5px; 
-
-  }
-  .container3{
-    
     justify-content: center;
     display: flex;
-    align-items:center;
-     
-    margin-top:300px;
- 
+    align-items: center;
+    margin-top: 150px;
 
-   
     font-size: 40px;
-    width:"lg"; 
+    width: "lg";
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-template-rows: repeat(2, 100px);  
-    grid-gap: 5px; 
-
-
-  }
-.grid-container1{
-
-  font-size: 30px;
-
-  direction:"row";
-
-  justify-content:"center";
-
-  align-items:"stretch";
-border-spacing: 2px;
-            
-}
-
-.grid-container2{
-  
-  font-size: 40px;
-  
-  direction:"row";
-
-  justify-content:"center";
-
-  align-items:"stretch";
-border-spacing: 2px;
-  
-}
-
-.grid-container3{
-  font-size: 30px;
-
-  direction:"row";
-
-  justify-content:"center";
-
-  align-items:"stretch";
-border-spacing: 2px;
-            
-}
-.box1{
-  margin-top: auto;
-  background-color: white;
-  font-size: 40px;
-  font-family: Abhaya Libra;
-  justify-content:"center";
+    grid-template-rows: repeat(2, 100px);
+    grid-gap: 5px;
 
 }
 
-.card1{
-  margin-bottom: 20px;
-  background-color: white;
-  box-shadow: white;
-  top: 300px;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  width: 500px;
-  border-radius: 5px;
-  padding: 1em;
+.container2 {
+
+
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    margin-top: 20px;
+
+    font-size: 40px;
+    width: "lg";
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, 100px);
+    grid-gap: 5px;
 
 }
-.card2{
-  margin-bottom: 20px;
+.container3 {
+
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    margin-top: 300px;
 
 
-  top: 0px;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  width: 600px;
-  border-radius: 5px;
-  padding: 1em;
+    font-size: 40px;
+    width: "lg";
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, 100px);
+    grid-gap: 5px;
+
+
+}
+.grid-container1 {
+
+    font-size: 30px;
+
+    direction: "row";
+
+    justify-content: "center";
+
+    align-items: "stretch";
+    border-spacing: 2px;
 
 }
 
-.card3{
-  
+.grid-container2 {
 
- width: 1000px;
- 
-  justify-content: center;
-  text-align: center;
+    font-size: 40px;
 
-  
-  padding: 1em;
+    direction: "row";
+
+    justify-content: "center";
+
+    align-items: "stretch";
+    border-spacing: 2px;
 
 }
-  
+
+.grid-container3 {
+    font-size: 30px;
+
+    direction: "row";
+
+    justify-content: "center";
+
+    align-items: "stretch";
+    border-spacing: 2px;
+
+}
+.box1 {
+    margin-top: auto;
+
+    font-size: 40px;
+    font-family: Abhaya Libra;
+    justify-content: "center";
+
+}
+
+.card1 {
+    margin-bottom: 20px;
+
+
+    top: 300px;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+    width: 500px;
+    border-radius: 5px;
+
+}
+.card2 {
+    margin-bottom: 20px;
+
+
+    top: 0;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+    width: 600px;
+    border-radius: 5px;
+
+}
+
+.card3 {
+
+
+    width: 1000px;
+
+    justify-content: center;
+    text-align: center;
+
+
+    padding: 1em;
+
+}
+
 .homepage-picture-icon {
-   
-
-   
-  top:1000px;
-
-  width:100%;
-
-  height: 1000px;
-  margin:0;
-  padding:0;
-  z-index:-5;
-  position:absolute;
-
-  }
 
 
-.password_rect, .username_rect{
+    top: 1000px;
 
-  height:70px;
-  width:500px;
-  border-radius: 10px;
-  background-color: #cdd2d6;
+    width: 100%;
+
+    height: 500px;
+    margin: 0;
+    padding: 0;
+    z-index: -5;
+    position: absolute;
+
 }
 
-.customer-engagement{
 
-  
+.password_rect,
+.username_rect {
+
+    height: 70px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: #cdd2d6;
+}
+
+.customer-engagement {
+
+
     font-size: 40px;
     font-weight: 800;
     font-family: Alegreya;
     color: #74bcbc;
+
+
+}
+.sign-in-button {
+    cursor: pointer;
+    padding: 0;
+    font-size: 40px;
+    background-color: #cdf5f4;
+
+
+    border-radius: 10px;
+
+    width: 344px;
+    height: 89px;
+
+
+}
+
+
+.bg{
+    top:0px;
+    height:1500px;
+    position: absolute;
+    width: 100%;
+    z-index: -10;
+    background-size: cover;
+  }
   
-
-}
-.sign-in-button{
-  cursor: pointer;
-  padding: 0;
-  font-size: 40px;
-  background-color: #cdf5f4;
-
- 
- 
-  border-radius: 10px;
-
-  width: 344px;
-  height: 89px;
-
-
-}
