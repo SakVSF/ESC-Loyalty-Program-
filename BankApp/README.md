@@ -7,6 +7,10 @@ Bank App for Loyalty Program Marketplace (50.003)
 a. From command line: ```git clone https://github.com/SakVSF/ESC-Loyalty-Program-``` and proceed with remaining init procedures
 b. From github website: Download as ZIP, unzip the folders to destination and proceed with remaining init procedures
 
+```
+npm install
+```
+
 ## Launching BankApp
 ### From command line: 
 1. Set up
