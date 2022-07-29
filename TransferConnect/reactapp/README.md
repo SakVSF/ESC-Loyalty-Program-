@@ -11,14 +11,14 @@ b. From github website: Download as ZIP, unzip the folders to destination and pr
 ### From command line: 
 1. Set up
 ```
-cd BankApp
+cd Transferconnect/reactapp
 npm install
 npm start
 ```
 OR 
 2. Set up using build
 ```
-cd BankApp
+cd TransferConnect/reactapp
 npm run build
 serve -s build
 ```
