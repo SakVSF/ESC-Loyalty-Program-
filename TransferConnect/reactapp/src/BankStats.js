@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/BankStats.css";
+import logo from "./background-memberpage@2x.png";
 
 export const BankStats = () => {
   const navigate = useNavigate();
@@ -10,13 +11,34 @@ export const BankStats = () => {
   }, [navigate]);
 
   return (
-    <div className="bank-stats-div">
-      <img
-        className="background-memberpage-icon2"
-        alt=""
-        src="background-memberpage@2x.png"
-      />
-      <div className="bank-interface-div">Bank Interface</div>
+    <div>
+      
+    <div className = "container2">
+            <div className="grid-container2">
+              
+                  <div className="card2">
+                      <div className="loyalty-program-marketplace">
+                      Bank Interface{" "}
+                      </div>
+                  </div>
+
+                
+
+              </div>
+     </div>
+
+
+      <div>
+            <img   className="background-homepage1-icon"
+            alt=""
+                          src={logo}
+                        />
+      </div>
+   
+
+
+     
+     
       <button
         className="back-button1"
         id="back_membership"
@@ -24,7 +46,7 @@ export const BankStats = () => {
       >
         Back
       </button>
-      <div className="gojet-rect-div" />
+     
     </div>
   );
 };

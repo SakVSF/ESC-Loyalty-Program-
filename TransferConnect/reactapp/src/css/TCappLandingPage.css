@@ -1,85 +1,148 @@
-.primary-rect-button {
-  cursor: pointer;
-  border: 1px solid #000;
+.background-homepage1-icon {
+  top: 0px;
+
+  width: 100%;
+
+  height: 170px;
+  margin: 0;
   padding: 0;
-  background-color: #d9d9d9;
+  z-index: -5;
   position: absolute;
-  top: 491px;
-  left: 568px;
-  border-radius: 20px;
-  box-sizing: border-box;
-  width: 378px;
-  height: 85px;
 }
-.background-memberpage-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1512px;
-  height: 116px;
-  object-fit: cover;
-}
-.transferconnect-homepage-div {
-  position: absolute;
-  top: calc(50% - 433px);
-  left: calc(50% - 756px);
+.transferconnect {
+
+
+  position: relative;
   color: #4ab2d3;
-  display: inline-block;
-  width: 392px;
-  height: 40px;
+
+  font-size: 45px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1px #000;
 }
-.welcome-to-transferconnect {
-  position: absolute;
-  top: 316px;
-  left: 553px;
-  font-size: 48px;
-  display: inline-block;
-  width: 407px;
-  height: 109px;
-}
-.bank-client-login {
-  position: absolute;
-  top: 503px;
-  left: 593px;
+.container1 {
+ 
+  font-family: Alegreya;
+
+  justify-content: center;
   display: flex;
   align-items: center;
+  margin-top: 150px;
+
+  font-size: 40px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
+}
+
+.container2 {
+
+
   justify-content: center;
-  width: 329px;
-  height: 61px;
-}
-.primary-rect-button1 {
-  cursor: pointer;
-  border: 1px solid #000;
-  padding: 0;
-  background-color: #d9d9d9;
-  position: absolute;
-  top: 630px;
-  left: 568px;
-  border-radius: 20px;
-  box-sizing: border-box;
-  width: 378px;
-  height: 85px;
-}
-.loyalty-partner-login {
-  position: absolute;
-  top: 642px;
-  left: 593px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 329px;
-  height: 61px;
+
+  margin-top: 20px;
+
+  font-size: 40px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
 }
-.tcapp-landing-page {
-  position: relative;
-  background-color: #fff;
-  width: 100%;
-  height: 982px;
-  overflow: hidden;
+.grid-container1 {
+
+  font-size: 30px;
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+
+.grid-container2 {
+
+  font-size: 40px;
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+
+.tbox1 {
+  margin-top:30px;
+
+  font-size: 50px;
+  
+  justify-content: "center";
+
+}
+
+.tcard1 {
+  margin-bottom: 20px;
+  
+
+  top: 300px;
+  justify-content: center;
   text-align: center;
-  font-size: 32px;
-  color: #000;
+  padding:2px;
+  width: 500px;
+  border-radius: 5px;
+
+}
+.card2 {
+  margin-bottom: 20px;
+
+
+  top: 0;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  width: 600px;
+  border-radius: 5px;
+
+}
+
+
+.homepagebutton{
+
+    cursor: pointer;
+    padding:0;
+    font-size: 30px;
+    background-color: #cdf5f4;
+
+
+    border-radius: 10px;
+
+    width:500px;
+    height: 89px;
+
+
+
+}
+
+.back-button1{
   font-family: Abhaya Libre;
+  
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  font-size: 40px;
+  color: #fff;
+  display: inline-block;
+  width: 200px;
+  height: 56px;
 }

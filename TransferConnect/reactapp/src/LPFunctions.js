@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/LPFunctions.css";
+import logo from "./background-memberpage@2x.png";
+
 
 export const LPFunctions = () => {
   const navigate = useNavigate();
@@ -34,76 +36,102 @@ export const LPFunctions = () => {
   }, [navigate]);
 
   return (
-    <div className="lp-functions-div">
-      <img
-        className="background-memberpage-icon5"
-        alt=""
-        src="background-memberpage@2x.png"
-      />
-      <div className="loyalty-partner-interface1">
-        Loyalty Partner Interface
+    
+    <div >
+
+    <div className = "container2">
+            <div className="grid-container2">
+              
+                  <div className="card2">
+                      <div className="loyalty-program-marketplace">
+                      Loyalty Partner Interface{" "}
+                      </div>
+                  </div>
+
+                
+
+              </div>
+     </div>
+
+
+      <div>
+            <img   className="background-homepage1-icon"
+            alt=""
+                          src={logo}
+                        />
       </div>
 
-
       <button
-        className="back-button4"
-        id="back_membership"
-        onClick={onBackButtonClick}
-      >
-        Back
-      </button>
+                  className="back-button1"
+                  id="back_membership"
+                  onClick={onBackButtonClick}
+                >
+                  Back
+                </button>
+
+      <div className="container1">
+        <div className="grid-container1">
+            <div className="bcard1">   
 
 
-      <div className="welcome-lp-div">{`Welcome, <LP>`}</div>
-      <img
-        className="gojet-rect-icon5"
-        alt=""
-        src="gojet-rect5.svg"
-      
-      />
-      <button
-        className="view-active-programs"
-        onClick={onViewActiveProgramsClick}
-      >
-        View active programs
-      </button>
-      <img
-        className="gojet-rect-icon6"
-        alt=""
-        src="gojet-rect5.svg"
-   
-      />
-      <button className="add-new-program" onClick={onAddNewProgramClick}>
-        Add new program
-      </button>
-      <img className="gojet-rect-icon7" alt="" src="gojet-rect5.svg" />
-      <button
-        className="remove-existing-program"
-        onClick={onRemoveExistingProgramClick}
-      >
-        Remove existing program
-      </button>
-      <img
-        className="gojet-rect-icon8"
-        alt=""
-        src="gojet-rect8.svg"
-        
-      />
-      <button className="view-accrual-files" onClick={onViewAccrualFilesClick}>
+            <button
+              className="option"
+              onClick={onViewActiveProgramsClick}
+            >
+              View active programs
+            </button>
+
+
+            </div> 
+
+      < div className="bcard1">
+
+            <button className="option" onClick={onAddNewProgramClick}>
+              Add new program
+            </button>
+
+
+        </div> 
+     
+     <div className="bcard1">      
+
+
+           
+           
+              <button
+                className="option"
+                onClick={onRemoveExistingProgramClick}
+              >
+                Remove existing program
+              </button>
+
+              </div> 
+     
+     <div className="bcard1">      
+
+
+
+
+      <button className="option" onClick={onViewAccrualFilesClick}>
         View accrual files
       </button>
-      <img
-        className="gojet-rect-icon9"
-        alt=""
-        src="gojet-rect8.svg"
-      
-      />
+
+
+      </div> 
+     
+     <div className="bcard1">      
+
+    
       <button
-        className="view-handback-files"
+        className="option"
         onClick={onViewHandbackFilesClick}
       >
         View handback files
       </button>
+    </div>
+    </div>
+    </div>
+
     </div>
   );
 };

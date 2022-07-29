@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/LPStats.css";
-
+import logo from "./background-memberpage@2x.png";
 export const LPStats = () => {
   const navigate = useNavigate();
 
@@ -10,21 +10,42 @@ export const LPStats = () => {
   }, [navigate]);
 
   return (
-    <div className="lp-stats-div">
-      <img
-        className="background-memberpage-icon4"
-        alt=""
-        src="background-memberpage@2x.png"
-      />
-      <div className="loyalty-partner-interface">Loyalty Partner Interface</div>
+    <div>
+      
+    <div className = "container2">
+            <div className="grid-container2">
+              
+                  <div className="card2">
+                      <div className="loyalty-program-marketplace">
+                      Loyalty Partner Interface
+                      </div>
+                  </div>
+
+                
+
+              </div>
+     </div>
+
+
+      <div>
+            <img   className="background-homepage1-icon"
+            alt=""
+                          src={logo}
+                        />
+      </div>
+   
+
+
+     
+     
       <button
-        className="back-button3"
+        className="back-button1"
         id="back_membership"
         onClick={onBackButtonClick}
       >
         Back
       </button>
-      <div className="gojet-rect-div1" />
+     
     </div>
   );
 };

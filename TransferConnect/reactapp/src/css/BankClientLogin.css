@@ -1,118 +1,152 @@
-.rectangle-button1 {
-  cursor: pointer;
-  border: 2px solid #000;
+.background-homepage1-icon {
+  top: 0px;
+
+
+  width: 100%;
+
+  height: 170px;
+  margin: 0;
   padding: 0;
-  background-color: #fff;
+  z-index: -5;
   position: absolute;
-  top: 767px;
-  left: 693px;
-  box-sizing: border-box;
-  width: 125px;
-  height: 48px;
 }
-.background-memberpage-icon6 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1512px;
-  height: 116px;
-  object-fit: cover;
-}
-.back-button5,
-.bank-client-login2 {
-  position: absolute;
-  font-size: 32px;
-  display: inline-block;
-}
-.bank-client-login2 {
-  top: calc(50% - 415px);
-  left: calc(50% - 756px);
+.loyalty-program-marketplace {
+
+
+  position: relative;
   color: #4ab2d3;
-  width: 265px;
-  height: 40px;
+
+  font-size: 45px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1px #000;
 }
-.back-button5 {
+
+.container1 {
+
+  font-family: Alegreya;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 150px;
+
+  font-size: 40px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
+}
+
+.container2 {
+
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  margin-top: 20px;
+
+  font-size: 40px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
+}
+.grid-container1 {
+
+  font-size: 30px;
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+
+.grid-container2 {
+
+  font-size: 40px;
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+
+.box1 {
+  margin-top: auto;
+
+  font-size: 40px;
+  font-family: Abhaya Libra;
+  justify-content: "center";
+
+}
+
+.card1 {
+  margin-bottom: 20px;
+
+
+  top: 300px;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  width: 500px;
+  border-radius: 5px;
+
+}
+.card2 {
+  margin-bottom: 20px;
+
+
+  top: 0;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  width: 600px;
+  border-radius: 5px;
+
+}
+.password_rect,
+.username_rect {
+
+    height: 70px;
+    width: 500px;
+    border-radius: 10px;
+    background-color: #cdd2d6;
+}
+
+.back-button1 {
   cursor: pointer;
   border: 0;
   padding: 0;
   background-color: transparent;
-  top: 7px;
-  left: 9px;
-  font-family: Abhaya Libre;
-  color: #fff;
-  text-align: center;
-  width: 83px;
-  height: 27px;
-}
-.bank-client-login3,
-.bank-name-div {
   position: absolute;
-  display: flex;
-  align-items: center;
-  width: 329px;
-  height: 48px;
-}
-.bank-client-login3 {
-  top: 307px;
-  left: 591px;
+  top: 5px;
+  left: 5px;
   font-size: 40px;
-  justify-content: center;
+  color: #fff;
+  display: inline-block;
+  width: 134px;
+  height: 56px;
 }
-.bank-name-div {
-  top: 421px;
-  left: 508px;
-  text-align: left;
-}
-.rectangle-input2 {
-  border: 2px solid #000;
-  background-color: #fff;
-  position: absolute;
-  top: 469px;
-  left: 508px;
-  box-sizing: border-box;
-  width: 495px;
-  height: 47px;
-}
-.password-div1,
-.verify-div1 {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  height: 48px;
-}
-.password-div1 {
-  top: 558px;
-  left: 508px;
-  text-align: left;
-  width: 329px;
-}
-.verify-div1 {
-  top: 719px;
-  left: 693px;
-  justify-content: center;
-  width: 125px;
+.sign-in-button {
   cursor: pointer;
-}
-.rectangle-input3 {
-  border: 2px solid #000;
-  background-color: #fff;
-  position: absolute;
-  top: 606px;
-  left: 508px;
-  box-sizing: border-box;
-  width: 495px;
-  height: 47px;
-}
-.bank-client-login1 {
-  position: relative;
-  background-color: #fff;
-  width: 100%;
-  height: 982px;
-  overflow: hidden;
-  text-align: center;
-  font-size: 30px;
-  color: #000;
-  font-family: Abhaya Libre;
+  padding: 0;
+  font-size: 40px;
+  background-color: #cdf5f4;
+
+
+  border-radius: 10px;
+
+  width: 344px;
+  height: 89px;
+
+
 }

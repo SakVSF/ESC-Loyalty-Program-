@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./css/BankFunctions.css";
+import logo from "./background-memberpage@2x.png";
 
 export const BankFunctions = () => {
   const navigate = useNavigate();
@@ -33,66 +34,98 @@ export const BankFunctions = () => {
   }, [navigate]);
 
   return (
-    <div className="bank-functions-div">
-      <img
-        className="background-memberpage-icon3"
-        alt=""
-        src="background-memberpage@2x.png"
-      />
-      <div className="bank-interface-div1">Bank Interface</div>
+    <div >
+
+    <div className = "container2">
+            <div className="grid-container2">
+              
+                  <div className="card2">
+                      <div className="loyalty-program-marketplace">
+                      Bank Interface{" "}
+                      </div>
+                  </div>
+
+                
+
+              </div>
+     </div>
+
+
+      <div>
+            <img   className="background-homepage1-icon"
+            alt=""
+                          src={logo}
+                        />
+      </div>
+   
       <button
-        className="back-button2"
+        className="back-button1"
         id="back_membership"
         onClick={onBackButtonClick}
       >
         Back
       </button>
-      <div className="welcome-bank-div">{`Welcome, <Bank>`}</div>
-      <img
-        className="gojet-rect-icon"
-        alt=""
-        src="gojet-rect.svg"
+
+      <div className="container1">
+        <div className="grid-container1">
+            <div className="bcard1">
       
-      />
-      <button
-        className="query-membership-points"
-        onClick={onQueryMembershipPointsClick}
-      >
-        Query membership points
-      </button>
-      <img
-        className="gojet-rect-icon1"
-        alt=""
-        src="gojet-rect.svg"
       
-      />
-      <img className="gojet-rect-icon2" alt="" src="gojet-rect.svg" />
-      <button
-        className="viewmodify-list-of-loyalty-pr"
-        onClick={onViewmodifyListOfClick}
-      >
-        View/modify list of Loyalty Programs
-      </button>
-      <button
-        className="query-transaction-status"
-        onClick={onQueryTransactionStatusClick}
-      >
-        Query transaction status
-      </button>
-      <img className="gojet-rect-icon3" alt="" src="gojet-rect.svg" />
-      <button
-        className="viewmodify-members-lists"
-        onClick={onViewmodifyMembersListsClick}
-      >
-        View/modify members lists
-      </button>
-      <img className="gojet-rect-icon4" alt="" src="gojet-rect.svg" />
-      <button
-        className="viewmodify-earn-rate"
-        onClick={onViewmodifyEarnRateClick}
-      >
-        View/modify earn rate
-      </button>
-    </div>
+                    <button
+                      className="option"
+                      onClick={onQueryMembershipPointsClick}
+                    >
+                      Query membership points
+                    </button>
+
+              </div>   
+
+          <div className="bcard1">   
+      
+                  <button
+                    className="option"
+                    onClick={onViewmodifyListOfClick}
+                  >
+                    View/modify list of Loyalty Programs
+                  </button>
+             </div> 
+
+         < div className="bcard1">
+
+                <button
+                  className="option"
+                  onClick={onQueryTransactionStatusClick}
+                >
+                  Query transaction status
+                </button>
+          </div> 
+
+          <div className="bcard1">
+                
+                
+                <button
+                  className="option"
+                  onClick={onViewmodifyMembersListsClick}
+                >
+                  View/modify members lists
+                </button>
+
+          </div> 
+     
+          <div className="bcard1">  
+     
+              <button
+                className="option"
+                onClick={onViewmodifyEarnRateClick}
+              >
+                View/modify earn rate
+              </button>
+          </div> 
+
+
+         </div>
+      </div> 
+      
+ </div> 
   );
 };
