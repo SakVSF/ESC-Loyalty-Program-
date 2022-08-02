@@ -148,7 +148,17 @@ recordRoutes.route("/:id").delete((req, response) => {
     });
 });
 
-//This section checks if a transaction is complete
+/*This section checks if a transaction is complete, and returns the error code to tell the user what went wrong.
+List of codes this API will return:
+  0000 - success
+  0001 - member not found
+  0002 - member name mismatch
+  0003 - member account closed
+  0004 - member account suspended
+  0005 - member ineligible for accrual
+  0099 - unable to process, please contact
+  support for more information
+*/
 recordRoutes.route("/status").get(async function (req, res) {
   const db_connect = dbo.getDb();
   const memberid = req.body.MemberID;
@@ -157,16 +167,43 @@ recordRoutes.route("/status").get(async function (req, res) {
     .collection("Transactions")
     .findOne(query); // returns the transaction of that member
   const status = transaction.Status;
-  console.log(status);
-  if (status === "0") {
-    res.send("Transaction pending");
-  } else if (status === "1") {
-    res.send("Transaction successful");
-  } else if (status === "2") {
-    res.send("Transaction failed");
-  } else {
-    res.send("Error, Unable to retrieve transaction status");
-  }
-});
+  switch(status){
+    case "0000":  
+      res.send("success");
+      break;
+    case "0001":
+      res.send("member not found");
+      break;
+    case "0002":
+      res.send("member name mismatch");
+      break;
+    case "0003":
+      res.send("member account closed");
+      break;
+    case "0004":
+      res.send("member account suspended");
+      break;
+    case "0005":
+      res.send("member ineligible for accrual");
+      break;
+    case "0099":
+      res.send("unable to process, please contact support for more information");
+      break;
+    default:
+      res.send("No known code found, Error?");
+      break;
+
+  }});
+//   if (status === "0") {
+//     res.send("Transaction pending");
+//   } else if (status === "1") {
+    
+//   } else if (status === "2") {
+//     res.send("Transaction failed");
+//   } else {
+//     res.send("Error, Unable to retrieve transaction status");
+//   }
+// });
 
 module.exports = recordRoutes;
+
