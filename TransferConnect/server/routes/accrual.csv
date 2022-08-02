@@ -1,0 +1,3 @@
+_id,Loyalty Program ID,FirstName,LastName,TransactionDate,RefNo,Amount,Description,Status,MemberID
+62d785844a7de48ac4e31d3c,GOPOINTS,Saakshi,Lee,19/07/2022,1,200,Blank,0,666
+62d7863f4a7de48ac4e31d3f,GOPOINTS,Peng,Jason,19/07/2022,0824934980,500,Blank,1,1234

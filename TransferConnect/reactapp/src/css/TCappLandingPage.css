@@ -1,0 +1,148 @@
+.background-homepage1-icon {
+  top: 0px;
+
+  width: 100%;
+
+  height: 170px;
+  margin: 0;
+  padding: 0;
+  z-index: -5;
+  position: absolute;
+}
+.transferconnect {
+
+
+  position: relative;
+  color: #4ab2d3;
+
+  font-size: 45px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke: 1px #000;
+}
+.container1 {
+ 
+  font-family: Alegreya;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 150px;
+
+  font-size: 40px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
+}
+
+.container2 {
+
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+
+  margin-top: 20px;
+
+  font-size: 40px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
+}
+.grid-container1 {
+
+  font-size: 30px;
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+
+.grid-container2 {
+
+  font-size: 40px;
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+
+.tbox1 {
+  margin-top:30px;
+
+  font-size: 50px;
+  
+  justify-content: "center";
+
+}
+
+.tcard1 {
+  margin-bottom: 20px;
+  
+
+  top: 300px;
+  justify-content: center;
+  text-align: center;
+  padding:2px;
+  width: 500px;
+  border-radius: 5px;
+
+}
+.card2 {
+  margin-bottom: 20px;
+
+
+  top: 0;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+  width: 600px;
+  border-radius: 5px;
+
+}
+
+
+.homepagebutton{
+
+    cursor: pointer;
+    padding:0;
+    font-size: 30px;
+    background-color: #cdf5f4;
+
+
+    border-radius: 10px;
+
+    width:500px;
+    height: 89px;
+
+
+
+}
+
+.back-button1{
+  font-family: Abhaya Libre;
+  
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 150px;
+  left: 5px;
+  font-size: 40px;
+  color: #fff;
+  display: inline-block;
+  width: 200px;
+  height: 56px;
+}
