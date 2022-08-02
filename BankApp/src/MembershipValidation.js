@@ -54,7 +54,7 @@ const MembershipValidation = () => {
       };
     
      
-      const response= await fetch(`http://localhost:5000/transactions`, {
+      const response= await fetch(`http://localhost:5001/transactions`, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -123,7 +123,7 @@ const MembershipValidation = () => {
   const fetchProduct = async () => {
       //  console.log(match.params.id);
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:5000/record/${params.id.toString()}`);
+      const response = await fetch(`http://localhost:5001/record/${params.id.toString()}`);
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
