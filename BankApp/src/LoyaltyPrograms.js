@@ -38,7 +38,7 @@ const LoyaltyPrograms = () => {
   const fetchProducts = () => {
     axios
       .get(
-        `http://localhost:5000/record`
+        `http://localhost:5001/record`
        //'https://shoppingapiacme.herokuapp.com/shopping'
         )
       .then((res) => {
