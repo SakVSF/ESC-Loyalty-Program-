@@ -21,26 +21,24 @@ describe('GET test', () => {
   )
 
   it ('should return a single loyalty program',async ()=>
-  { let myquery = { _id: "62d784e44a7de48ac4e31d3a" };
+  { 
 
-    const res = await request(baseURL).get("/record");
+    const res = await request(baseURL).get("/record/62d784e44a7de48ac4e31d3a");
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   })
   it ('should throw error as it is trying to access an object not in the database',async ()=>
   { let myquery = { _id: "62d784e44a7de48ac4e31d3aa" };
 
-    const res = await request(baseURL).get("/record");
-    expect(res.statusCode).toBe(200); // Check status code is correct
+    const res = await request(baseURL).get("/record/62d784e44a7de48ac4e31d3aa");
+    expect(res.statusCode).toBe(500); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   })
 
 });
 
 describe("POST test",()=>
-{afterAll(async () => {
-    await request(baseURL).delete(`/record/${testbody.id}`)
-  })
+{
 it ('should add a record into the database',async () => {
     const testbody = {
         "name":"test123",
@@ -48,9 +46,10 @@ it ('should add a record into the database',async () => {
         "level":2
       };
     const response = await request(baseURL).post("/record/add").send(testbody);
-    const lastItem = response.body.data[response.body.data.length-1]
-    expect(response.statusCode).toBe(201);
-    expect(lastItem.item).toBe(newTodo["item"]);
-    expect(lastItem.completed).toBe(newTodo["completed"]);
+   
+    await request(baseURL).delete(`/${response.body.insertedId}`);
+    expect(response.statusCode).toBe(201);  // Check if post request has succeeded
+
 });
+
 });

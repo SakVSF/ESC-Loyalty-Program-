@@ -31,7 +31,6 @@ recordRoutes.route("/record").get(function (req, res) {
 
     .toArray(function (err, result) {
       if (err) throw err;
-
       res.json(result);
     });
 })
@@ -109,6 +108,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
 
       response.json(res);
     });
+    response.statusCode = 201;
 });
 
 // This section will help you update a record by id.
@@ -127,6 +127,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
       level: req.body.level,
     },
   };
+  response.statusCode(201);
 });
 
 // This section will help you delete a record
