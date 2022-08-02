@@ -28,11 +28,27 @@ describe('GET test', () => {
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   })
   it ('should throw error as it is trying to access an object not in the database',async ()=>
-  { let myquery = { _id: "62d784e44a7de48ac4e31d3aa" };
+  { 
 
     const res = await request(baseURL).get("/record/62d784e44a7de48ac4e31d3aa");
     expect(res.statusCode).toBe(500); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
+  })
+
+  it ('should return a transaction record given a valid member id',async ()=>
+  { 
+    const body= {"MemberID":666};
+    const res =  await request(baseURL).get("/status").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
+  })
+
+  it ('should throw an error given an invalid member id',async ()=>
+  { 
+    const body= {"MemberID":6616};
+    const res =  await request(baseURL).get("/status").send(body);
+    expect(res.statusCode).toBe(500); // Check status code is correct
+  
   })
 
 });
