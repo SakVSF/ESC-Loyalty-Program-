@@ -22,6 +22,8 @@ const ObjectId = require("mongodb").ObjectId;
 
 recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
     let db_connect = dbo.getDb("merntest0");
+recordRoutes.route("/getTransaction/MemberID").get( (req,res)=>
+{   let db_connect = dbo.getDb("merntest0");
 
     db_connect
 
@@ -32,6 +34,17 @@ recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
             res.json(result);
         });
 });
+recordRoutes.route("/getTransaction/refno").get( (req,res)=>
+{   let db_connect = dbo.getDb("merntest0");
+db_connect
+  .collection("Transactions")
+  .find({"RefNo":req.body.refno})
+  .toArray(function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+})
+
 
 // This section will help you get a list of all the loyalty programs.
 

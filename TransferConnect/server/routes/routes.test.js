@@ -32,29 +32,56 @@ describe('GET test', () => {
   it ('should return a transaction record given a valid member id',async ()=>
   { 
     const body= {memberid:100097739895};
-    const res =  await request(baseURL).get("/getTranscation/MemberID").send(body);
+    const res =  await request(baseURL).get("/getTransaction/MemberID").send(body);
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   })
 
-  it ('should return empty array given an invalid member id',async ()=>
+  it ('should try and fetch a transaction with an invalid member id and return empty array ',async ()=>
   { 
     const body= {memberid:"6616"};
-    const res =  await request(baseURL).get("/getTranscation/MemberID").send(body);
+    const res =  await request(baseURL).get("/getTransaction/MemberID").send(body);
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual([]);
   
   })
-  it ('should return empty array given invalid request body',async ()=>
+  it ('should try and fetch a transaction with an invalid request body and return empty array',async ()=>
   { 
     const body= {random:"6616"};
-    const res =  await request(baseURL).get("/getTranscation/MemberID").send(body);
+    const res =  await request(baseURL).get("/getTransaction/MemberID").send(body);
     expect(res.statusCode).toBe(200); // Check status code is correct
 
     expect(res.body).toEqual([]);
 
   
   })
+  it ('should try and fetch a transaction with a valid refno and return that transaction',async ()=>
+  { 
+    const body= {refno:"1"};
+    const res =  await request(baseURL).get("/getTransaction/refno").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual(expect.anything());
+
+  })
+  it ('should try and fetch a transaction with an invalid request body and return empty array',async ()=>
+  { 
+    const body= {random:"6616"};
+    const res =  await request(baseURL).get("/getTransaction/refno").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+
+    expect(res.body).toEqual([]);
+
+  
+  })
+  it ('should try and fetch a transaction with an invalid refno and return an empty array',async ()=>
+  { 
+    const body= {refno:"13"};
+    const res =  await request(baseURL).get("/getTransaction/refno").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual([]);
+
+  })
+  
   
 
 });
