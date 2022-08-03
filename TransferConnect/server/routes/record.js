@@ -48,6 +48,23 @@ recordRoutes.route("/transactions").get(function (req, res) {
     });
     response.statusCode = 200;
 })
+//takes an transac request and checks if the memberid format is correct.
+//inputs: regex_format and memberid to check
+//output: a response with a message to check validity.
+.post(function(req,res){
+  let db_connect = dbo.getDb();
+  const loyalty_currency_name = req.body.loyalty_currency_name;
+  const memberid = req.body.memberid;
+  const document = db_connect.collection("MembershipTest").findOne({"Loyalty Currency Name": loyalty_currency_name});
+  const regex_format = document["Validation Regex"];
+  const valid_check = Validate(regex_format, memberid);
+  if(valid_check){
+    res.status(200).send("Membership number is ok");
+  }
+  else{
+    res.status(200).send("Membership number does not match format");
+  }
+});
 
 recordRoutes.route("/transactions/add").post(function (req, res) {
   let db_connect = dbo.getDb("");
@@ -76,23 +93,6 @@ recordRoutes.route("/transactions/add").post(function (req, res) {
   
   response.statusCode = 201;
 })
-//takes an transac request and checks if the memberid format is correct.
-//inputs: regex_format and memberid to check
-//output: a response with a message to check validity.
-.post(function(req,res){
-  let db_connect = dbo.getDb();
-  const loyalty_currency_name = req.body.loyalty_currency_name;
-  const memberid = req.body.memberid;
-  const document = db_connect.collection("MembershipTest").findOne({"Loyalty Currency Name": loyalty_currency_name});
-  const regex_format = document["Validation Regex"];
-  const valid_check = Validate(regex_format, memberid);
-  if(valid_check){
-    res.status(200).send("Membership number is ok");
-  }
-  else{
-    res.status(200).send("Membership number does not match format");
-  }
-});
 
 // This section will help you get a single record by id
 
