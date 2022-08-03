@@ -1,4 +1,4 @@
-const { query } = require("express");
+const { query, response } = require("express");
 const express = require("express");
 const {Validate} = require("./validation.js")
 
@@ -38,19 +38,15 @@ recordRoutes.route("/record").get(function (req, res) {
 
 //returns an array of jsons of transactions
 recordRoutes.route("/transactions").get(function (req, res) {
-  let db_connect = dbo.getDb("merntest0");
+  let db_connect = dbo.getDb("");
 
   db_connect
-
     .collection("Transactions")
-
-    .find({})
-
-    .toArray(function (err, result) {
+    .find({}, function (err, res) {
       if (err) throw err;
-
-      res.json(result);
+      response.json(res);
     });
+    response.statusCode = 200;
 })
 //takes an transac request and checks if the memberid format is correct.
 //inputs: regex_format and memberid to check
@@ -69,6 +65,34 @@ recordRoutes.route("/transactions").get(function (req, res) {
     res.status(200).send("Membership number does not match format");
   }
 });
+
+recordRoutes.route("/transactions/add").post(function (req, res) {
+  let db_connect = dbo.getDb("");
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  today = mm + '/' + dd + '/' + yyyy;
+  const RefNo = Math.random();
+  let myobj = {
+    TransactionDate: today,
+    Amount: req.body.amount,
+    Status: req.body.status,
+    MemberID:req.body.memberid,
+    LoyaltyProgramID:req.body.programid,
+    Description:"nothing",
+    RefNo:RefNo
+  };
+
+  db_connect
+  .collection("Transactions")
+  .insertOne(myobj, function (err, res) {
+    if (err) throw err;
+    response.json(res);
+  });
+  
+  response.statusCode = 201;
+})
 
 // This section will help you get a single record by id
 
