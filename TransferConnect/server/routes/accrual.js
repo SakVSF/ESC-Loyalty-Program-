@@ -7,6 +7,8 @@ const fastcsv = require("fast-csv");
 const fs = require("fs");
 const { config } = require("process");
 const { setFlagsFromString } = require("v8");
+var today = new Date().toLocaleDateString();
+var YYYYMMDD = today.substring(6,10) + today.substring(3,5) + today.substring(0,2);
 
 async function getcsv(){
     //generate csv file from database contents
@@ -46,8 +48,6 @@ async function putaccrual(partner){
     await sftp.connect(config).then(async () => {
         try
         {
-            var today = new Date().toLocaleDateString();
-            var YYYYMMDD = today.substring(6,10) + today.substring(3,5) + today.substring(0,2);
             //console.log(output);
             src = "accrual.csv"; //local path
             //default folder path :  \\melvrickgoh\sutd_2022_c4g9
@@ -76,7 +76,7 @@ async function getHandback(partner){
         {
             //src = "/Users/limboonhanmelvin/Downloads/ESC-Loyalty-Program-/TransferConnect/server/routes/accrual.csv"; //local path
             //default folder path :  \\melvrickgoh\sutd_2022_c4g9
-            d = `\\${partner}/accrual.csv`; //<dir>/<filename> of sftp (remote path)
+            d = `\\${partner}/${partner}_${YYYYMMDD}.csv`; //<dir>/<filename> of sftp (remote path)
             console.log("downloading.....");
             await sftp.get(d,"Handback.csv");
             console.log("success");
