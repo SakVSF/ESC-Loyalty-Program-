@@ -20,13 +20,24 @@ const ObjectId = require("mongodb").ObjectId;
 
 // This api helps to retrieve all the transaction record given a member id
 
-recordRoutes.route("/getTranscation/MemberID").get( (req,res)=>
+recordRoutes.route("/getTransaction/MemberID").get( (req,res)=>
 {   let db_connect = dbo.getDb("merntest0");
 
 db_connect
 
   .collection("Transactions")
   .find({"MemberID":req.body.memberid})
+  .toArray(function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+})
+
+recordRoutes.route("/getTransaction/refno").get( (req,res)=>
+{   let db_connect = dbo.getDb("merntest0");
+db_connect
+  .collection("Transactions")
+  .find({"RefNo":req.body.refno})
   .toArray(function (err, result) {
     if (err) throw err;
     res.json(result);
