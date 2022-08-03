@@ -12,17 +12,11 @@ describe('GET test', () => {
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   
   })
-  it ('should returns an array of jsons of transactions',async()=>
-  {
-    const res = await request(baseURL).get("/transactions");
-    expect(res.statusCode).toBe(200); // Check status code is correct
-    expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
-  }
-  )
+
 
   it ('should return a single loyalty program',async ()=>
   { 
-
+    
     const res = await request(baseURL).get("/record/62d784e44a7de48ac4e31d3a");
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
@@ -37,19 +31,31 @@ describe('GET test', () => {
 
   it ('should return a transaction record given a valid member id',async ()=>
   { 
-    const body= {"MemberID":666};
-    const res =  await request(baseURL).get("/status").send(body);
+    const body= {memberid:100097739895};
+    const res =  await request(baseURL).get("/getTranscation/MemberID").send(body);
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   })
 
-  it ('should throw an error given an invalid member id',async ()=>
+  it ('should return empty array given an invalid member id',async ()=>
   { 
-    const body= {"MemberID":6616};
-    const res =  await request(baseURL).get("/status").send(body);
-    expect(res.statusCode).toBe(500); // Check status code is correct
+    const body= {memberid:"6616"};
+    const res =  await request(baseURL).get("/getTranscation/MemberID").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual([]);
   
   })
+  it ('should return empty array given invalid request body',async ()=>
+  { 
+    const body= {random:"6616"};
+    const res =  await request(baseURL).get("/getTranscation/MemberID").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+
+    expect(res.body).toEqual([]);
+
+  
+  })
+  
 
 });
 
