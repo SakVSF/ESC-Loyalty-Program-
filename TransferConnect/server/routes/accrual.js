@@ -1,8 +1,7 @@
 const { dir, assert } = require("console");
-//npm install basic-ftp
+
 const mongodb = require("mongodb").MongoClient;
 //npm install mongodb
-
 //npm install fast-csv
 const fastcsv = require("fast-csv");
 const fs = require("fs");
@@ -33,7 +32,7 @@ async function getcsv(){
     })
 }
 
-async function putaccrual(){
+async function putaccrual(partner){
 
     let Client = require ("ssh2-sftp-client");
     //npm install ssh2-sftp-client
@@ -47,9 +46,12 @@ async function putaccrual(){
     await sftp.connect(config).then(async () => {
         try
         {
+            var today = new Date().toLocaleDateString();
+            var YYYYMMDD = today.substring(6,10) + today.substring(3,5) + today.substring(0,2);
+            //console.log(output);
             src = "accrual.csv"; //local path
             //default folder path :  \\melvrickgoh\sutd_2022_c4g9
-            d = "\\Partner1/accrual.csv"; //<dir>/<filename> of sftp (remote path)
+            d = `\\${partner}/${partner}_${YYYYMMDD}.csv`; //<dir>/<filename> of sftp (remote path)
             console.log("uploading.....");
             await sftp.put(src,d);
             console.log("success");
@@ -58,7 +60,7 @@ async function putaccrual(){
     }).finally(() => {sftp.end();});
 }
 
-async function getAccrual(){
+async function getHandback(partner){
     let Client = require ("ssh2-sftp-client");
     //npm install ssh2-sftp-client
     let sftp = new Client();
@@ -74,14 +76,14 @@ async function getAccrual(){
         {
             //src = "/Users/limboonhanmelvin/Downloads/ESC-Loyalty-Program-/TransferConnect/server/routes/accrual.csv"; //local path
             //default folder path :  \\melvrickgoh\sutd_2022_c4g9
-            d = "\\Partner1/accrual.csv"; //<dir>/<filename> of sftp (remote path)
+            d = `\\${partner}/accrual.csv`; //<dir>/<filename> of sftp (remote path)
             console.log("downloading.....");
-            await sftp.get(d,"accrual.csv");
+            await sftp.get(d,"Handback.csv");
             console.log("success");
         }
         catch(err) {console.log("failed \n",err);}
     }).finally(() => {sftp.end();});
 }
 //getcsv()
-//putaccrual()
-getAccrual()
+//putaccrual("Partner1")
+//getHandback("Partner1")
