@@ -16,7 +16,7 @@ const mongodb = require("mongodb").MongoClient;
 //     }
 // }
 
-async function validate(loyalty_currency_name, memberid) {
+function validate(loyalty_currency_name, memberid) {
     let url =
         "mongodb+srv://hith:chun@merntest0.hqr9i9x.mongodb.net/merntest0?retryWrites=true&w=majority";
     let query = { "Loyalty Currency Name": loyalty_currency_name };
@@ -45,7 +45,7 @@ async function validate(loyalty_currency_name, memberid) {
     }
 }
 
-async function memberValidate(membershipid) {
+function memberValidate(membershipid) {
     //returns true if membership id is registered (in database)
     let url =
         "mongodb+srv://hith:chun@merntest0.hqr9i9x.mongodb.net/merntest0?retryWrites=true&w=majority";
