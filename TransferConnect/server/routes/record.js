@@ -18,7 +18,23 @@ const dbo = require("../db/conn");
 
 const ObjectId = require("mongodb").ObjectId;
 
+
+// This api helps to retrieve all the members for signin
+recordRoutes.route("/members").get((req, res) => {
+  let db_connect = dbo.getDb("merntest0");
+
+  db_connect
+
+      .collection("Members")
+      .find({})
+      .toArray(function (err, result) {
+          if (err) throw err;
+          res.json(result);
+      });
+});
+
 // This api helps to retrieve all the transaction record given a member id
+
 
 recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
     let db_connect = dbo.getDb("merntest0");
@@ -36,6 +52,7 @@ recordRoutes.route("/getTransaction/MemberID").get((req, res) => {
             res.json(result);
         });
 });
+
 recordRoutes.route("/getTransaction/refno").get((req, res) => {
     let db_connect = dbo.getDb("merntest0");
     db_connect
