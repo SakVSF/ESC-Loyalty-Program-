@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { SuccessPopup } from "./SuccessPopup";
 import { PortalPopup } from "./PortalPopup";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import "./css/TransferPopup.css";
 import logo from "./popuplogo.PNG";
@@ -10,9 +10,9 @@ import logo from "./popuplogo.PNG";
 
 export const TransferPopup = ({ onClose }) => {
   const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const [points, setPoints]= useState("50000");
+  //const navigate = useNavigate();
+  const location = useLocation();
+  const [points, setPoints]= useState("");
   const [remaining ,setRemaining ] =useState(50000-Number(points));
 
   const openSuccessPopup = useCallback(() => {
@@ -23,9 +23,6 @@ export const TransferPopup = ({ onClose }) => {
     setSuccessPopupOpen(false);
   }, []);
 
-  const onCross1ButtonClick = useCallback(() => {
-    navigate("/loyalty-programs");
-  }, [navigate]);
 
   return (
     <>
@@ -56,7 +53,7 @@ export const TransferPopup = ({ onClose }) => {
             <div className="tcard1">
                 <div className="tbox1">
 
-                      <div classname="labelpoints" >
+                      <div className="labelpoints" >
                           Using Points
                       </div>
 
@@ -67,6 +64,7 @@ export const TransferPopup = ({ onClose }) => {
 
                                   className="inputfield"
                                   type="text"
+
                                   required
                                   
                                   placeholder="Points to transfer"
@@ -93,7 +91,7 @@ export const TransferPopup = ({ onClose }) => {
 
             <div className="tcard1">
                 <div className="tbox1">
-                   <div   classname="labelpoints" >
+                   <div   className="labelpoints" >
                           Points Remaining
                       </div>
 

@@ -1,14 +1,15 @@
 import { useCallback } from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 import "./bg.jpg";
 
 import "./css/Homepage.css";
 
 export const Homepage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onTransactionsPageTextClick = useCallback(() => {
-    navigate("/transactions-page");
+    navigate("/transactions-page", {state:{username:location.state.username}});
   }, [navigate]);
 
   const onSignOutLinkClick = useCallback(() => {
@@ -16,7 +17,7 @@ export const Homepage = () => {
   }, [navigate]);
 
   const onViewLoyaltyProgramsClick = useCallback(() => {
-    navigate("/loyalty-programs");
+    navigate("/loyalty-programs", {state:{username:location.state.username}});
   }, [navigate]);
 
 

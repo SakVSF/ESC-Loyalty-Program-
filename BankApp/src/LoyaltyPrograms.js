@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./css/LoyaltyPrograms.css";
 import axios from 'axios';
 
@@ -10,7 +10,7 @@ const LoyaltyPrograms = () => {
 
 
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [products, setProducts] = useState([]);
 /*
   useEffect( () => {
@@ -38,7 +38,7 @@ const LoyaltyPrograms = () => {
   const fetchProducts = () => {
     axios
       .get(
-        `http://localhost:5001/record`
+        `http://localhost:5000/record`
        //'https://shoppingapiacme.herokuapp.com/shopping'
         )
       .then((res) => {
@@ -55,7 +55,7 @@ const LoyaltyPrograms = () => {
 
 
   const onBackButtonClick = useCallback(() => {
-    navigate("/homepage");
+    navigate("/homepage", {state:{username:location.state.username}});
   }, [navigate]);
  
 
@@ -102,7 +102,7 @@ const LoyaltyPrograms = () => {
               <h3 classname="Name">{product.LoyaltyProgramName}</h3>
               <p classname="Currency">{product.LoyaltyProgramCurrencyName}</p>
               <p classname="Description">{product.Description}</p>
-              <Link className="transfer" id ="{id}" to={`/membership-validation/${product._id}`}>Transfer Miles</Link>
+              <Link className="transfer" id ="{key}" to={{pathname: `/membership-validation/${product._id}`, state:{username:location.state.username}}}>Transfer Miles</Link>
             </div>
 
 

@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect} from "react";
 import { TransferPopup } from "./TransferPopup";
 import { PortalPopup } from "./PortalPopup";
-import { useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams, useLocation} from "react-router-dom";
 //import { LPName } from "./LPName_mem";
 import "./css/MembershipValidation.css";
 
@@ -13,15 +13,12 @@ import bg from "./bg.jpg";
 
 const MembershipValidation = () => {
 
-  //const initialValues = { username: "", memberid: "", confirm_memberid: "" };
- // const [formValues, setFormValues] = useState(initialValues);
-  //const [formErrors, setFormErrors] = useState({});
 
   const [state, setState]= useState({username:"", memberid:"", confirm_memberid:""})
+  const location = useLocation();
 
 
 
-  //const [isSubmit, setIsSubmit] = useState(false);
   const [isValidated, setIsValidated] = useState(false);
 
   const [isTransferPopupOpen, setTransferPopupOpen] = useState(false);
@@ -29,22 +26,18 @@ const MembershipValidation = () => {
   const params = useParams();
   
 
+  const [status, setStatus] = useState([]);
 
   //const id= useParams();
   const [products, SetProducts] = useState({});
-/*
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState({ ...state, [name]: value });
 
-    
-    //setState({ ...state, [name]:value});
 
-  };
-  */
 
   async function handleSubmit (e) {
     e.preventDefault();
+    window.alert(products.LoyaltyProgramName);
+   
+
 
       const userData = {
    
@@ -52,9 +45,23 @@ const MembershipValidation = () => {
         loyalty_currency_name: products.LoyaltyProgramName,
       
       };
-    
-     
-      const response= await fetch(`http://localhost:5001/transactions`, {
+   
+      await fetch(`http://localhost:5000/transactions`, {
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+       
+      }
+      
+      ).then((res) =>  res.json()).then((data)=>setStatus(data))
+        
+        
+      .catch((err) => console.log(err));
+   
+     /*
+      const response = await fetch(`http://localhost:5000/transactions`, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -64,66 +71,37 @@ const MembershipValidation = () => {
       }
       
       );
-   
-
-      const code = response.status;
-      if(code===200){
-        setIsValidated(true);
-      }
-      if(code===304){
-        setIsValidated(false);
-      }
-
-      /*
+      
+      
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
       
-  
-      const record = await response.json();
-      window.alert("reached record");
-     
-      window.alert(JSON.stringify(record));
-      setIsValidated(true);
-*/
+  */
+      //const record = await response.json();
+     // window.alert("reached record");
+      window.alert(status.msg);
+      //window.alert(JSON.stringify(record));
+      if(status.status===1){
+        document.getElementById("putstatus").innerHTML = "Membership Verified!";
+      }
+      if(status.status===0){
+        document.getElementById("putstatus").innerHTML = "Invalid Membership ID!";
+      }
+      
+
       
 
     }
-
-    
-    //setState(...state, ["loyalty_currency_name"]: products.name)
-    //setFormErrors(validate(formValues));
-    //setIsSubmit(true);
-
-    //if(Object.keys(formErrors).length === 0){
-      
-/*
-       axios.post("https://localhost:5000/transactions", userData).then((response) => {
-        window.alert(response.status);
-        console.log(response.data);
-        if(response.ok){
-          window.alert("ok");
-          setIsValidated(true);
-        }
-        else{
-          window.alert("!!!");
-          setIsValidated(true);
-        }
-      });
-
-   // }
-*/
-
- 
 
 
   useEffect(() => { 
   const fetchProduct = async () => {
       //  console.log(match.params.id);
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:5001/record/${params.id.toString()}`);
+      const response = await fetch(`http://localhost:5000/record/${params.id.toString()}`);
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
@@ -138,7 +116,7 @@ const MembershipValidation = () => {
       }
 
       SetProducts(record);
-     window.alert(JSON.stringify(record));
+     //window.alert(JSON.stringify(record));
 
     }
 
@@ -222,7 +200,7 @@ const MembershipValidation = () => {
   }, []);
 
   const onBackButtonClick = useCallback(() => {
-    navigate("/loyalty-programs");
+    navigate("/loyalty-programs", {state: {username:location.state.username}});
   }, [navigate]);
 
   function updateState(value) {
@@ -320,7 +298,7 @@ const MembershipValidation = () => {
 
                   <div className="membox1">
                     <input
-                      className="memberhsip-no-rect-input"
+                      className="membership-no-rect-input"
                     
                       type="memberid"
                       name="memberid"
@@ -352,7 +330,7 @@ const MembershipValidation = () => {
                       required
                     />
                   </div>
-
+                 
               </div>
 
 
@@ -366,24 +344,18 @@ const MembershipValidation = () => {
               </div>
            
           </form>
-
+          
 
           
-          { isValidated ? (
-
+          
             <div className="memcard1">
-             <div className="membox1">
-                <div >Membership Validated! </div>
-                <button classname="verify-rect-button"onClick={openTransferPopup}>Click to Transfer</button>
-            </div>
-            </div>
-          ) : 
-          (<div className="memcard1">
-            <div className="membox1"> Validating
-            </div>
-            
-            </div>)
-        }
+            <div className="membox1">
+               <p id="putstatus" >Validate by clicking verify</p>
+               <button className="transfer"onClick={openTransferPopup}>Click to Transfer</button>
+           </div>
+           </div>
+         
+
       
           
 

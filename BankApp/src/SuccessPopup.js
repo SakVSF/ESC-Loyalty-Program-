@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 
 import { LPName1 } from "./LPName1";
 import "./css/SuccessPopup.css";
@@ -8,7 +8,7 @@ import tick from "./tick.png";
 
 export const SuccessPopup = ({ onClose }) => {
   const navigate = useNavigate();
-
+  const location = useLocation();
   /*
    <div className="miles-are-on-their-way">miles are on their way </div>
          <div className="account-div1">account</div>
