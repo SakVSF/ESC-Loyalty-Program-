@@ -24,3 +24,9 @@ cd ../client
 npm start
 ```
 Wait for the browser to launch localhost:3000 
+
+
+## To test
+cd TransferConnect
+cd server
+npm test
