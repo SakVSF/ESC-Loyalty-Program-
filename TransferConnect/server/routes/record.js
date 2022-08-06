@@ -1,6 +1,6 @@
 const { query, response } = require("express");
 const express = require("express");
-const { validate } = require("./validation.js");
+const { validate } = require("./validation");
 
 // recordRoutes is an instance of the express router.
 
@@ -18,23 +18,21 @@ const dbo = require("../db/conn");
 
 const ObjectId = require("mongodb").ObjectId;
 
-
 // This api helps to retrieve all the members for signin
 recordRoutes.route("/members").get((req, res) => {
-  let db_connect = dbo.getDb("merntest0");
+    let db_connect = dbo.getDb("merntest0");
 
-  db_connect
+    db_connect
 
-      .collection("Members")
-      .find({})
-      .toArray(function (err, result) {
-          if (err) throw err;
-          res.json(result);
-      });
+        .collection("Members")
+        .find({})
+        .toArray(function (err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
 });
 
 // This api helps to retrieve all the transaction record given a member id
-
 
 recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
     let db_connect = dbo.getDb("merntest0");
@@ -96,10 +94,11 @@ recordRoutes
     //takes an transac request and checks if the memberid format is correct.
     //inputs: regex_format and memberid to check
     //output: a response with a message to check validity.
-    .post(function (req, res) {
+    .post(async function (req, res) {
         const loyalty_currency_name = req.body.loyalty_currency_name;
         const memberid = req.body.memberid;
-        const valid_check = validate(loyalty_currency_name, memberid);
+        const valid_check = await validate(loyalty_currency_name, memberid);
+        console.log(valid_check);
         if (valid_check) {
             res.status(200).send("Membership number is ok");
         } else {
