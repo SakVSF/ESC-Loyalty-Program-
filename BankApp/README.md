@@ -9,6 +9,7 @@ b. From github website: Download as ZIP, unzip the folders to destination and pr
 
 ```
 npm install
+npm install axios
 ```
 
 ## Launching BankApp
