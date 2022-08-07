@@ -45,16 +45,7 @@ describe('GET test', () => {
     expect(res.body).toEqual([]);
   
   })
-  it ('should try and fetch a transaction with an invalid request body and return empty array',async ()=>
-  { 
-    const body= {random:"6616"};
-    const res =  await request(baseURL).get("/getTransaction/MemberID").send(body);
-    expect(res.statusCode).toBe(200); // Check status code is correct
 
-    expect(res.body).toEqual([]);
-
-  
-  })
   it ('should try and fetch a transaction with a valid refno and return that transaction',async ()=>
   { 
     const body= {refno:"1"};
@@ -67,9 +58,9 @@ describe('GET test', () => {
   { 
     const body= {random:"6616"};
     const res =  await request(baseURL).get("/getTransaction/refno").send(body);
-    expect(res.statusCode).toBe(200); // Check status code is correct
 
-    expect(res.body).toEqual([]);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual(null);
 
   
   })
@@ -78,7 +69,7 @@ describe('GET test', () => {
     const body= {refno:"13"};
     const res =  await request(baseURL).get("/getTransaction/refno").send(body);
     expect(res.statusCode).toBe(200); // Check status code is correct
-    expect(res.body).toEqual([]);
+    expect(res.body).toEqual(null);
 
   })
   
