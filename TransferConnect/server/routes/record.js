@@ -32,8 +32,6 @@ recordRoutes.route("/members").get((req, res) => {
         });
 });
 
-
-
 // This api helps to retrieve all the transaction record given a member id
 
 recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
@@ -100,11 +98,14 @@ recordRoutes
         const loyalty_currency_name = req.body.loyalty_currency_name;
         const memberid = req.body.memberid;
         const valid_check = await validate(loyalty_currency_name, memberid);
-        console.log(valid_check);
+        // console.log(valid_check);
         if (valid_check) {
-            res.json({msg:"Membership number is ok", status:1});
+            res.json({ msg: "Membership number is ok", status: 1 });
         } else {
-            res.json({msg:"Membership number does not match format", status:0});
+            res.json({
+                msg: "Membership number does not match format",
+                status: 0,
+            });
         }
     });
 
