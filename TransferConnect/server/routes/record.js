@@ -125,17 +125,16 @@ recordRoutes
             Description: "",
             RefNo: RefNo,
         };
-    
         db_connect.collection("Transactions").insertOne(myobj, function (err, result) {
             if (err) {
               res.status(400).send("Error inserting matches!");
             } else {
               console.log(`Added a new transaction with Refno ${RefNo}`);
-              res.json(RefNo);
-              res.status(204)
+              res.json({"RefNo":RefNo});
+              res.statusCode = 201;
             }
           });
-    
+          res.statusCode = 201;
         
     });
  

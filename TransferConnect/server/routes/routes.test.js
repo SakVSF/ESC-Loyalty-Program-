@@ -92,4 +92,19 @@ it ('should add a record into the database',async () => {
 
 });
 
+
+it ('should add a transaction into the database',async () => {
+  const testbody = {
+    
+    amount: "1",
+    status: "2",
+    memberid: "3",
+    programid: "4"
+
+};
+  const response = await request(baseURL).post("/transactions/add").send(testbody);
+
+  expect(response.statusCode).toBe(201);  // Check if post request has succeeded
+
+});
 });
