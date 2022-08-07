@@ -32,6 +32,8 @@ recordRoutes.route("/members").get((req, res) => {
         });
 });
 
+
+
 // This api helps to retrieve all the transaction record given a member id
 
 recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
@@ -100,14 +102,14 @@ recordRoutes
         const valid_check = await validate(loyalty_currency_name, memberid);
         console.log(valid_check);
         if (valid_check) {
-            res.status(200).send("Membership number is ok");
+            res.json({msg:"Membership number is ok", status:1});
         } else {
-            res.status(200).send("Membership number does not match format");
+            res.json({msg:"Membership number does not match format", status:0});
         }
     });
 
 recordRoutes.route("/transactions/add").post(function (req, res) {
-    let db_connect = dbo.getDb("");
+    let db_connect = dbo.getDb("merntest0");
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, "0");
     var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
@@ -120,7 +122,7 @@ recordRoutes.route("/transactions/add").post(function (req, res) {
         Status: req.body.status,
         MemberID: req.body.memberid,
         LoyaltyProgramID: req.body.programid,
-        Description: "nothing",
+        Description: "",
         RefNo: RefNo,
     };
 
