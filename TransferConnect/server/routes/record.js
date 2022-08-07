@@ -131,8 +131,8 @@ recordRoutes
               res.status(400).send("Error inserting matches!");
             } else {
               console.log(`Added a new transaction with Refno ${RefNo}`);
-              
-              res.status(204).send(RefNo);
+              res.json(RefNo);
+              res.status(204)
             }
           });
     
