@@ -12,6 +12,7 @@ const LoyaltyPrograms = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [products, setProducts] = useState([]);
+
 /*
   useEffect( () => {
     fetchProducts();
@@ -38,7 +39,7 @@ const LoyaltyPrograms = () => {
   const fetchProducts = () => {
     axios
       .get(
-        `http://localhost:5000/record`
+        `http://localhost:5001/record`
        //'https://shoppingapiacme.herokuapp.com/shopping'
         )
       .then((res) => {
@@ -55,6 +56,8 @@ const LoyaltyPrograms = () => {
 
 
   const onBackButtonClick = useCallback(() => {
+    window.alert(location.state.username);
+    
     navigate("/homepage", {state:{username:location.state.username}});
   }, [navigate]);
  

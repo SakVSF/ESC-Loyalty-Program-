@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect} from "react";
-import { TransferPopup } from "./TransferPopup";
-import { PortalPopup } from "./PortalPopup";
+
 import { useNavigate, useParams, useLocation} from "react-router-dom";
 //import { LPName } from "./LPName_mem";
 import "./css/MembershipValidation.css";
@@ -21,7 +20,7 @@ const MembershipValidation = () => {
 
   const [isValidated, setIsValidated] = useState(false);
 
-  const [isTransferPopupOpen, setTransferPopupOpen] = useState(false);
+  
   const navigate = useNavigate();
   const params = useParams();
   
@@ -35,10 +34,9 @@ const MembershipValidation = () => {
 
   async function handleSubmit (e) {
     e.preventDefault();
-    window.alert(products.LoyaltyProgramName);
+  
    
-
-
+    if(state.memberid===state.confirm_memberid){
       const userData = {
    
         memberid: state.memberid,
@@ -46,7 +44,7 @@ const MembershipValidation = () => {
       
       };
    
-      await fetch(`http://localhost:5000/transactions`, {
+      await fetch(`http://localhost:5001/transactions`, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -59,49 +57,36 @@ const MembershipValidation = () => {
         
         
       .catch((err) => console.log(err));
+      gotoTransfer();
+      
+     
    
-     /*
-      const response = await fetch(`http://localhost:5000/transactions`, {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-       
-      }
-      
-      );
-      
-      
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-      
-  */
-      //const record = await response.json();
-     // window.alert("reached record");
-      window.alert(status.msg);
-      //window.alert(JSON.stringify(record));
-      if(status.status===1){
-        document.getElementById("putstatus").innerHTML = "Membership Verified!";
-      }
-      if(status.status===0){
-        document.getElementById("putstatus").innerHTML = "Invalid Membership ID!";
-      }
-      
-
+    }
+    else{
+      window.alert("Confirm memberid not the same as memberid")
+    }
       
 
     }
 
+    const gotoTransfer = () => {
+      if(status.status===1){
+        window.alert("verified!");
+        //document.getElementById("putstatus").innerHTML = "Membership Verified!";
+        navigate("/transfer-miles", {state: {username:state.username, memberid:state.memberid, lpid: products.LoyaltyProgramID }});
+ 
+      }
+      if(status.status===0){
+        window.alert("not verified!");
+  
+      }
+    }
 
   useEffect(() => { 
   const fetchProduct = async () => {
       //  console.log(match.params.id);
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:5000/record/${params.id.toString()}`);
+      const response = await fetch(`http://localhost:5001/record/${params.id.toString()}`);
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
@@ -116,92 +101,28 @@ const MembershipValidation = () => {
       }
 
       SetProducts(record);
-     //window.alert(JSON.stringify(record));
+
 
     }
-
-    fetchProduct();
-
-    return;
-  }, [params.id,  navigate]);
-/*
-      await   axios
-        .get(
-         `http://localhost:5000/record/${_id}`
-          //`https://shoppingapiacme.herokuapp.com/shopping/?id=${match.params.id}`
-        )
-        .then((res) => {
-          SetProducts(res.data);
-          
-        })
-        .catch((err) => console.log(err));
-      };*/
-
-
-
-    //console.log(formErrors);
-    //if (Object.keys(formErrors).length === 0 && isSubmit) {
-    ////  console.log(formValues);
-    //}
-
-  //}, [formErrors]);  // eslint-disable-line react-hooks/exhaustive-deps
-  
-
-
-   
 
     
       
-     
+
+
+    fetchProduct();
+    
+
+    return;
+  }, [params.id,  navigate]);
 
 
 
- 
-/*
-
-  const validate = (values) => {
-    const errors = {};
-    const regex =  /^\d+$/;
-    const regex1 = /^[A-Za-z]*$/ ;
-    if (!values.username) {
-      errors.username = "Primary Cardholder name is required!";
-    }
-    else if(!regex1.test(values.username)) {
-      errors.username = "Primary Cardholder should only contain letters";
-   }
-    if (!values.memberid) {
-      errors.memberid = "Membership Number is required!";
-    } 
-   
-    else if (!regex.test(values.memberid)) {
-      errors.memberid = "Membership Number should only contain digits";
-   }
-    if (!values.confirm_memberid) {
-      errors.confirm_memberid = "Please confirm membership number";
-    } 
-    else if (!regex.test(values.confirm_memberid)) {
-      errors.confirm_memberid = "Membership Number should only contain digits";
-   }
-   
-    else if(values.memberid!==values.confirm_memberid) {
-
-      errors.confirm_memberid = "Confirm Membership Number does not match Membership Number";
-    }
-    return errors;
-  }; 
-*/
-
-  const openTransferPopup = useCallback(() => {
-    setTransferPopupOpen(true);
-  }, []);
-
-  const closeTransferPopup = useCallback(() => {
-    setTransferPopupOpen(false);
-  }, []);
 
   const onBackButtonClick = useCallback(() => {
-    navigate("/loyalty-programs", {state: {username:location.state.username}});
+   
+    navigate("/loyalty-programs", {state: {username:state.username}});
   }, [navigate]);
+ 
 
   function updateState(value) {
     return setState((prev) => {
@@ -254,8 +175,7 @@ const MembershipValidation = () => {
         
         
 
-          <form onSubmit={handleSubmit}>
-
+         
           <div className="memcard1">
           Link your account to transfer miles </div>
 
@@ -263,7 +183,7 @@ const MembershipValidation = () => {
               <div className="memcard1">
                   <div className="membox1">
                      
-                     <b className="primary-cardholder-b">Primary Cardholder</b>
+                     <b className="primary-cardholder-b">Username</b>
 
                     </div>
 
@@ -337,26 +257,13 @@ const MembershipValidation = () => {
               <div className="memcard1">
                   <div className="membox1">
                 
-                  <button type="Submit" className="verify-rect-button">Verify</button>
+                  <button type="Submit" className="verify-rect-button" onClick = {handleSubmit}>Verify</button>
    
                   </div>
 
               </div>
            
-          </form>
-          
-
-          
-          
-            <div className="memcard1">
-            <div className="membox1">
-               <p id="putstatus" >Validate by clicking verify</p>
-               <button className="transfer"onClick={openTransferPopup}>Click to Transfer</button>
-           </div>
-           </div>
-         
-
-      
+   
           
 
 
@@ -371,16 +278,7 @@ const MembershipValidation = () => {
           </button>
         
 
-        {isTransferPopupOpen && (
-          <PortalPopup
-            overlayColor="rgba(113, 113, 113, 0.3)"
-            placement="Centered"
-            onOutsideClick={closeTransferPopup}
-          >
-            <TransferPopup onClose={closeTransferPopup} />
-          </PortalPopup>
-                )}
-        
+       
         <img  class="membg" alt="" src="bg.jpg"/>
    
 

@@ -7,9 +7,9 @@
   justify-content: center;
   display: flex;
   align-items: center;
-  margin-top: 0px;
+  margin-top: 60px;
 
-  font-size: 40px;
+  font-size: 50px;
   width: "lg";
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: repeat(2, 100px);
@@ -33,12 +33,13 @@
   height:50px;
   border-color: #b8d2e7;
   border-radius: 10px;
+  margin-top: 10px;
 
  
 
 }
 .tcard1 {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   justify-content: center;
   text-align: center;
   padding: 3px;
@@ -65,22 +66,5 @@
 
 }
 .labelpoints{
-  font-size:20px;
-}
-
-.transfer-popup {
-
-  background-color: #fff;
-  border: 1px solid #000;
-  box-sizing: border-box;
-
-  overflow: hidden;
-  max-width: 90%;
-  max-height: 90%;
-  width:700px;
-  height:700px;
-
-
-
- 
+  font-size:30px;
 }

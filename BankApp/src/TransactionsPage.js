@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from 'axios';
 import "./css/TransactionsPage.css";
 
-export const TransactionsPage = () => {
+const TransactionsPage = () => {
   const navigate = useNavigate();
 
   const [products, setProducts] = useState([]);
@@ -15,51 +15,20 @@ export const TransactionsPage = () => {
 
   useEffect(() => {
     fetchProducts();
-    fetchStatus();
+  
   }, []);
 
-  
-  const fetchStatus = async () => {
+  /*
+  async function  fetchStatus(refno){
       const userData = {
         
-          Username: location.state.username,
+          Refno: refno,
         
         };
 
-    /* 
-
-      const response = await fetch(`http://localhost:5000/status`, 
-      {
-        method: "GET",
-        body: JSON.stringify(userData),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-       
-      }
-      
-      );
-
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-  
-      const record = await response.json();
-      window.alert(JSON.stringify(record));
-      if (!record) {
-        window.alert(`Transaction not found`);
-        navigate("/");
-        return;
-      }
-
-      setStatus(record);
-      window.alert(status);
-    }
-    */
+    
  
-    await fetch(`http://localhost:5000/status`, {
+    await fetch(`http://localhost:5001/status`, {
         method: "POST",
         body: JSON.stringify(userData),
         headers: {
@@ -72,9 +41,13 @@ export const TransactionsPage = () => {
         
         
       .catch((err) => console.log(err));
+   
+
+   // document.getElementById("FieldStatus").innerHTML= status.msg;
+
     }
 
-
+*/
 
 
   
@@ -83,7 +56,7 @@ export const TransactionsPage = () => {
   const fetchProducts = () => {
     axios
       .get(
-        `http://localhost:5000/transactions`
+        `http://localhost:5001/transactions`
        //'https://shoppingapiacme.herokuapp.com/shopping'
         )
       .then((res) => {
@@ -129,25 +102,64 @@ export const TransactionsPage = () => {
           </div>
 
 
-          <div className='container-lp'>
+          <div className='container-tp'>
+            <div className='gridcontainer-tp'>
         {products.map((product) => (
         
           <div  key = {product._id}>
           
               {product.Username===location.state.username?(
+               
 
-              <div className="cardlp">
+              <div className="cardtp">
          
-                  <p className="Currency">Loyalty Program Name : {product.LoyaltyProgramID}</p>
+                  <p className="Field">Loyalty Program Name : {product.LoyaltyProgramID}</p>
                   
-                  <p className="Currency">Transaction Status  : {status.status}</p>
-   
-
                   
+                  <p className="Field">Reference Number  : {product.RefNo}</p>
+            
+                  {
+                  product.Status==="0000"? (
+                    <p id="Field">Status : Success </p>
 
-                  <p className="Currency">Date of Transaction : {product.TransactionDate}</p>
+                  ):(  product.Status==="0001"? (
+                    <p id="Field">Status : Member Not found</p>
+
+                     ):  (  product.Status==="0002"? (
+                               <p id="Field">Status : Member Name Mismatch </p>
+
+                          ):(product.Status==="0003"? (
+
+                           <p id="Field">Status : Member Account Closed </p>
+
+                             ):( product.Status==="0004"? (
+
+                               <p id="Field">Status : Member Account Suspended </p>
+
+                                 ):( product.Status==="0005"? (
+
+                                    <p id="Field">Status : Member Ineligible for Accrual </p>
+
+                                      ):(  product.Status==="0099"? (
+
+                                          <p id="Field">Status : Unable to process, please contact support for more information </p>
+
+                                            ):( product.Status==="1111"? (
+
+                                              <p id="Field">Status : In process. Please check back later. </p>
+    
+                                                ):( 
+                                                        <p id="Field">Status : No known code found, Error? </p>
+    
+                                                         )
+
+                                                     )))) )) )
+                                                                                                
+                  
+                                            }
+                  <p className="Field">Date of Transaction : {product.TransactionDate}</p>
               
-                   <p className="Description">Transaction Amount    : {product.Amount}</p>
+                   <p className="Field">Transaction Amount    : {product.Amount}</p>
               </div>
               ):
               
@@ -156,8 +168,10 @@ export const TransactionsPage = () => {
               
            </div>
 
+
         ))}
 
+          </div>
           </div>
 
 
@@ -185,6 +199,7 @@ export const TransactionsPage = () => {
 
   );
 };
+export default TransactionsPage;
 /*
 {product.Status==="0"?(
 
