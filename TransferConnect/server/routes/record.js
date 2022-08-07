@@ -34,9 +34,6 @@ recordRoutes.route("/members").get((req, res) => {
 
 // This api helps to retrieve all the transaction record given a member id
 
-recordRoutes.route("/getTranscation/MemberID").get((req, res) => {
-    let db_connect = dbo.getDb("merntest0");
-});
 
 recordRoutes.route("/getTransaction/MemberID").get((req, res) => {
     let db_connect = dbo.getDb("merntest0");
@@ -52,14 +49,15 @@ recordRoutes.route("/getTransaction/MemberID").get((req, res) => {
 });
 
 recordRoutes.route("/getTransaction/refno").get((req, res) => {
-    let db_connect = dbo.getDb("merntest0");
+    const db_connect = dbo.getDb("merntest0");
+    const query = { RefNo: req.body.refno };
     db_connect
         .collection("Transactions")
-        .find({ RefNo: req.body.refno })
-        .toArray(function (err, result) {
+        .findOne(query,function (err, result) {
             if (err) throw err;
             res.json(result);
-        });
+        }); 
+    
 });
 
 // This section will help you get a list of all the loyalty programs.
@@ -109,31 +107,38 @@ recordRoutes
         }
     });
 
-recordRoutes.route("/transactions/add").post(function (req, res) {
-    let db_connect = dbo.getDb("merntest0");
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, "0");
-    var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-    var yyyy = today.getFullYear();
-    today = mm + "/" + dd + "/" + yyyy;
-    const RefNo = Math.random();
-    let myobj = {
-        TransactionDate: today,
-        Amount: req.body.amount,
-        Status: req.body.status,
-        MemberID: req.body.memberid,
-        LoyaltyProgramID: req.body.programid,
-        Description: "",
-        RefNo: RefNo,
-    };
 
-    db_connect.collection("Transactions").insertOne(myobj, function (err, res) {
-        if (err) throw err;
-        response.json(res);
+    recordRoutes.route("/transactions/add").post(function (req, res) {
+        const db_connect = dbo.getDb("merntest0");
+        var today = new Date();
+        const dd = String(today.getDate()).padStart(2, "0");
+        const mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+        const yyyy = today.getFullYear();
+        today = mm + "/" + dd + "/" + yyyy;
+        const RefNo = Math.random();
+        const myobj = {
+            TransactionDate: today,
+            Amount: req.body.amount,
+            Status: req.body.status,
+            MemberID: req.body.memberid,
+            LoyaltyProgramID: req.body.programid,
+            Description: "",
+            RefNo: RefNo,
+        };
+    
+        db_connect.collection("Transactions").insertOne(myobj, function (err, result) {
+            if (err) {
+              res.status(400).send("Error inserting matches!");
+            } else {
+              console.log(`Added a new transaction with Refno ${RefNo}`);
+              
+              res.status(204).send(RefNo);
+            }
+          });
+    
+        
     });
-
-    response.statusCode = 201;
-});
+ 
 
 // This section will help you get a single record by id
 
