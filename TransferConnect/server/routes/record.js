@@ -1,7 +1,8 @@
 const { query, response } = require("express");
 const express = require("express");
 const { validate } = require("./validation");
-
+const request = require('request');
+const baseURL = "http://localhost:5001"
 // recordRoutes is an instance of the express router.
 
 // We use it to define our routes.
@@ -60,6 +61,19 @@ recordRoutes.route("/getTransaction/refno").get((req, res) => {
 });
 
 // This section will help you get a list of all the loyalty programs.
+recordRoutes.route("/getTransaction").get( (req,res)=>
+{
+    let db_connect = dbo.getDb("merntest0");
+
+    db_connect
+    .collection("Transactions")
+    .find({})
+    .toArray(function (err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+    res.statusCode = 200;
+});
 
 recordRoutes.route("/record").get(function (req, res) {
     let db_connect = dbo.getDb("merntest0");
@@ -77,12 +91,9 @@ recordRoutes.route("/record").get(function (req, res) {
 });
 
 //returns an array of jsons of transactions
-recordRoutes
-    .route("/transactions")
-    .get(function (req, res) {
-        let db_connect = dbo.getDb("");
-
-        db_connect.collection("Transactions").find({}, function (err, res) {
+recordRoutes.route("/transactions").get(function (req, response) {
+        const db_connect = dbo.getDb("merntest0");
+        db_connect.collection("Transactions").find({}, function (err, result) {
             if (err) throw err;
             response.json(res);
         });
@@ -111,12 +122,9 @@ recordRoutes
        
         const dbConnect = dbo.getDb();
         const query = { "MemberID": req.body.memberid };
-        
-       
         const result =  await dbConnect.collection("Members").findOne(query);
         let pointsAval = result.PointsAvailable
         const remaining = parseInt(pointsAval) - parseInt(req.body.amount);
-      
         const updates = {
             $set: {
               PointsAvailable: remaining.toString()
@@ -136,7 +144,7 @@ recordRoutes
     })
 
 
-    recordRoutes.route("/transactions/add").post(function (req, res) {
+    recordRoutes.route("/transactions/add").post(async function (req, res,next) {
         const db_connect = dbo.getDb("merntest0");
         var today = new Date();
         const dd = String(today.getDate()).padStart(2, "0");
@@ -153,17 +161,39 @@ recordRoutes
             Description: "",
             RefNo: RefNo,
         };
+
         db_connect.collection("Transactions").insertOne(myobj, function (err, result) {
             if (err) {
-              res.status(400).send("Error inserting matches!");
+              
+              throw err;
             } else {
               console.log(`Added a new transaction with Refno ${RefNo}`);
               res.json({"RefNo":RefNo});
-              res.statusCode = 201;
             }
           });
+
+          const dbConnect = dbo.getDb();
+        const query = { "MemberID": req.body.memberid };
+        const result =  await dbConnect.collection("Members").findOne(query);
+        let pointsAval = result.PointsAvailable
+        const remaining = parseInt(pointsAval) - parseInt(req.body.amount);
+        const updates = {
+            $set: {
+              PointsAvailable: remaining.toString()
+            }
+          };
+        dbConnect
+          .collection("Members")
+          .updateOne(query, updates, function (err, _result) {
+            if (err) {
+             throw err;
+            } else {
+              res.statusCode = 201;
+              console.log("1 document updated");
+            }
+          });
+
           res.statusCode = 201;
-        
     });
  
 
