@@ -1,9 +1,10 @@
 const { dir, assert } = require("console");
-
+const url =
+"mongodb+srv://hith:chun@merntest0.hqr9i9x.mongodb.net/merntest0?retryWrites=true&w=majority";
 const mongodb = require("mongodb").MongoClient;
 //npm install mongodb
-//npm install fast-csv
 const fastcsv = require("fast-csv");
+//npm install fast-csv
 const fs = require("fs");
 const { config } = require("process");
 const { setFlagsFromString } = require("v8");
@@ -11,10 +12,10 @@ var today = new Date().toLocaleDateString();
 var YYYYMMDD =
     today.substring(6, 10) + today.substring(3, 5) + today.substring(0, 2);
 
+
 async function getcsv() {
     //generate csv file from database contents
-    let url =
-        "mongodb+srv://hith:chun@merntest0.hqr9i9x.mongodb.net/merntest0?retryWrites=true&w=majority";
+
     const ws = fs.createWriteStream("accrual.csv");
     mongodb.connect(
         url,
@@ -27,7 +28,7 @@ async function getcsv() {
                 .find({})
                 .toArray((err, data) => {
                     if (err) throw err;
-                    console.log(data);
+                    //console.log(data);
                     fastcsv
                         .write(data, { headers: true })
                         .on("finish", function () {
@@ -86,7 +87,6 @@ async function getHandback(partner) {
         .connect(config)
         .then(async () => {
             try {
-                //src = "/Users/limboonhanmelvin/Downloads/ESC-Loyalty-Program-/TransferConnect/server/routes/accrual.csv"; //local path
                 //default folder path :  \\melvrickgoh\sutd_2022_c4g9
                 d = `\\${partner}/${partner}_${YYYYMMDD}.csv`; //<dir>/<filename> of sftp (remote path)
                 console.log("downloading.....");
