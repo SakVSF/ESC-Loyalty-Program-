@@ -34,7 +34,6 @@ recordRoutes.route("/members").get((req, res) => {
 
 // This api helps to retrieve all the transaction record given a member id
 
-
 recordRoutes.route("/getTransaction/MemberID").get((req, res) => {
     let db_connect = dbo.getDb("merntest0");
 
@@ -106,6 +105,35 @@ recordRoutes
             });
         }
     });
+
+    recordRoutes.route("/changememberpoints").post( async (req,res)=>
+    {
+       
+        const dbConnect = dbo.getDb();
+        const query = { "MemberID": req.body.memberid };
+        
+       
+        const result =  await dbConnect.collection("Members").findOne(query);
+        let pointsAval = result.PointsAvailable
+        const remaining = parseInt(pointsAval) - parseInt(req.body.amount);
+      
+        const updates = {
+            $set: {
+              PointsAvailable: remaining.toString()
+            }
+          };
+        dbConnect
+          .collection("Members")
+          .updateOne(query, updates, function (err, _result) {
+            if (err) {
+              res.sendstatus(400).send(`Error!`);
+            } else {
+                res.sendStatus(201);
+              console.log("1 document updated");
+            }
+          });
+   
+    })
 
 
     recordRoutes.route("/transactions/add").post(function (req, res) {

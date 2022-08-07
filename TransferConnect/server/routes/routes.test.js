@@ -107,4 +107,16 @@ it ('should add a transaction into the database',async () => {
   expect(response.statusCode).toBe(201);  // Check if post request has succeeded
 
 });
+
+
+it ('should change the member points remaining in the of adatabase',async () => {
+  const testbody =  {memberid:"0824934980",amount:"0"};
+  const response = await request(baseURL).post("/changememberpoints").send(testbody);
+
+  expect(response.statusCode).toBe(201);  // Check if post request has succeeded
+
+});
+
+
+
 });
