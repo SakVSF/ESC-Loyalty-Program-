@@ -105,7 +105,7 @@ const LoyaltyPrograms = () => {
               <h3 classname="Name">{product.LoyaltyProgramName}</h3>
               <p classname="Currency">{product.LoyaltyProgramCurrencyName}</p>
               <p classname="Description">{product.Description}</p>
-              <Link className="transfer" id ="{key}" to={{pathname: `/membership-validation/${product._id}`, state:{username:location.state.username}}}>Transfer Miles</Link>
+              <Link className="transfer" id ="{key}" to={`/membership-validation/${product._id}`}  state={{username : location.state.username}}>Transfer Miles</Link>
             </div>
 
 

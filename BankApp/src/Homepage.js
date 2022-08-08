@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { useNavigate, useLocation} from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate,  useLocation} from "react-router-dom";
 import "./bg.jpg";
-
+import axios from 'axios';
 import "./css/Homepage.css";
 
 export const Homepage = () => {
@@ -20,6 +20,27 @@ export const Homepage = () => {
     navigate("/loyalty-programs", {state:{username:location.state.username}});
   }, [navigate]);
 
+  const [getinfo, setInfo] = useState([])
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+
+  const fetchProducts = () => {
+    axios
+      .get(
+        `http://localhost:5001/members`
+    
+        )
+      .then((res) => {
+        // console.log(res);
+        setInfo(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
 
  
@@ -78,18 +99,32 @@ export const Homepage = () => {
 
 
             <div className="rewards-to-display-div">
+            {getinfo.map((product) => (
+        
+               <div  key = {product._id}>
+        
+                    {product.Username===location.state.username?
 
+                        (
+                        <div className="homebox1">
+                              <div className="rewards-div">{product.PointsAvailable}</div> 
+                          </div>
+                        ):
+                        (<div></div>)
+                        }
 
-                <div className="homebox1">
-                      <div classname="homenumber" id="rewards_display">50000</div> 
-                  </div>
+            </div>
+             ))}
+
 
                 <div className="homebox1">
                       <div className="rewards-div">Rewards to Transfer!</div>
                   </div>
 
-            </div>
+            
+           
 
+            </div>
             </div>
 
               
@@ -192,26 +227,9 @@ export const Homepage = () => {
 
             </div>
 
-
-
-
-              
-
- 
-
         </div>
         
 
-
- 
-            
-   
-
-
-
-
-
-      
        <div>
        <button className="back-button1" id="back_lp" onClick={onSignOutLinkClick}>
               Sign Out

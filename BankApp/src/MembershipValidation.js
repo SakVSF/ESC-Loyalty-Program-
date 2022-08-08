@@ -8,12 +8,12 @@ import logo from "./background-homepage@2x.png";
 import bg from "./bg.jpg";
 
 const MembershipValidation = () => {
-    const [state, setState] = useState({
+    const [member, setmember] = useState({
         username: "",
         memberid: "",
         confirm_memberid: "",
     });
-    const location = useLocation();
+    const {location }= useLocation();
 
     const [isValidated, setIsValidated] = useState(false);
 
@@ -26,9 +26,9 @@ const MembershipValidation = () => {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        if (state.memberid === state.confirm_memberid) {
+        if (member.memberid === member.confirm_memberid) {
             const userData = {
-                memberid: state.memberid,
+                memberid: member.memberid,
                 loyalty_currency_name: products.LoyaltyProgramName,
             };
 
@@ -59,8 +59,8 @@ const MembershipValidation = () => {
             //document.getElementById("putstatus").innerHTML = "Membership Verified!";
             navigate("/transfer-miles", {
                 state: {
-                    username: state.username,
-                    memberid: state.memberid,
+                    username: member.username,
+                    memberid: member.memberid,
                     lpid: products.LoyaltyProgramID,
                 },
             });
@@ -71,6 +71,8 @@ const MembershipValidation = () => {
     };
 
     useEffect(() => {
+
+      //  window.alert(location.state.username);
         const fetchProduct = async () => {
             //  console.log(match.params.id);
             const id = params.id.toString();
@@ -98,12 +100,10 @@ const MembershipValidation = () => {
         return;
     }, [params.id, navigate]);
 
-    const onBackButtonClick = useCallback(() => {
-        navigate("/loyalty-programs", { state: { username: state.username } });
-    }, [navigate]);
 
-    function updateState(value) {
-        return setState((prev) => {
+
+    function updatemember(value) {
+        return setmember((prev) => {
             return { ...prev, ...value };
         });
     }
@@ -150,9 +150,9 @@ const MembershipValidation = () => {
                                 required
                                 name="username"
                                 placeholder="Letters only"
-                                value={state.username}
+                                value={member.username}
                                 onChange={(e) =>
-                                    updateState({ username: e.target.value })
+                                    updatemember({ username: e.target.value })
                                 }
                             />
                         </div>
@@ -171,9 +171,9 @@ const MembershipValidation = () => {
                                 type="memberid"
                                 name="memberid"
                                 placeholder="Digits only"
-                                value={state.memberid}
+                                value={member.memberid}
                                 onChange={(e) =>
-                                    updateState({ memberid: e.target.value })
+                                    updatemember({ memberid: e.target.value })
                                 }
                                 //  className="confirm-no-rect-input"
                                 required
@@ -194,9 +194,9 @@ const MembershipValidation = () => {
                                 type="memberid"
                                 name="confirm_memberid"
                                 placeholder="Digits only"
-                                value={state.confirm_memberid}
+                                value={member.confirm_memberid}
                                 onChange={(e) =>
-                                    updateState({
+                                    updatemember({
                                         confirm_memberid: e.target.value,
                                     })
                                 }
@@ -219,13 +219,7 @@ const MembershipValidation = () => {
                 </div>
             </div>
 
-            <button
-                className="back-button1"
-                id="back_lp"
-                onClick={onBackButtonClick}
-            >
-                Back
-            </button>
+           
 
             <img class="membg" alt="" src="bg.jpg" />
         </div>
@@ -234,44 +228,3 @@ const MembershipValidation = () => {
 
 export default MembershipValidation;
 
-/*
-const [data, setData] = useState([]);
-  useEffect( () =>{
-    fetchProduct();
-  }, []);
-
-  const fetchProduct = () => {
-    axios
-      .get(
-        `https://shoppingapiacme.herokuapp.com/shopping/?id=${match.params.id}`  //edit url
-      )
-      .then((res) => {
-        setData(res.data);
-        
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-  
-        {products.map((product) => {
-          return (
-
-              );
-           
-
-        })}
-
-
-    ----------------
-      
-        <div className="product-container" >
-            
-            <div className="lp-name-div" id="LP_name_membership"> {products.name}</div>;
-                        
-        </div>
-
-           <div className="account-to-start">account to start</div>
-
-              <p className="memberid-error">{formErrors.memberid}</p>
-
-*/

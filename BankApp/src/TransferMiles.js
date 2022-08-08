@@ -1,10 +1,10 @@
 import { useState, useCallback, useEffect} from "react";
 
 import { useNavigate,useLocation} from "react-router-dom";
-//import { LPName } from "./LPName_mem";
+
 import "./css/TransferMiles.css";
 import axios from 'axios';
-import logo1 from "./popuplogo.PNG";
+
 
 import logo from "./background-homepage@2x.png";
 import bg from "./bg.jpg";
@@ -45,28 +45,7 @@ const fetchProduct= async ()=> {
     console.log(err);
   });
 
-      /*  const userData = {
-              
-          Username: location.state.username,
-        
-        };
-
-
-
-      await fetch(`http://localhost:5001/members`, {
-        method: "POST",
-       // body: JSON.stringify(userData),
-        headers: {
-          'Content-Type': 'application/json'
-        },
       
-      }
-
-      ).then((res) =>  res.json()).then((data)=>SetProducts(data))
-      .catch((err) => {
-        console.log(err);
-      });
-      */
 
 };
 
@@ -78,6 +57,7 @@ const addtoTransactions= async ()=> {
           status: "1111",
           memberid: location.state.memberid,
           programid : location.state.lpid,
+          username : location.state.username,
 
         
         };
@@ -97,7 +77,7 @@ const addtoTransactions= async ()=> {
         
         
       .catch((err) => console.log(err));
-      window.alert(products);
+     // window.alert(products);
 
 };
 
@@ -318,44 +298,3 @@ const addtoTransactions= async ()=> {
 export default TransferMiles;
 
 
-/*
-const [data, setData] = useState([]);
-  useEffect( () =>{
-    fetchProduct();
-  }, []);
-
-  const fetchProduct = () => {
-    axios
-      .get(
-        `https://shoppingapiacme.herokuapp.com/shopping/?id=${match.params.id}`  //edit url
-      )
-      .then((res) => {
-        setData(res.data);
-        
-        console.log(res.data);
-      })
-      .catch((err) => console.log(err));
-  };
-  
-        {products.map((product) => {
-          return (
-
-              );
-           
-
-        })}
-
-
-    ----------------
-      
-        <div className="product-container" >
-            
-            <div className="lp-name-div" id="LP_name_membership"> {products.name}</div>;
-                        
-        </div>
-
-           <div className="account-to-start">account to start</div>
-
-              <p className="memberid-error">{formErrors.memberid}</p>
-
-*/

@@ -56,7 +56,7 @@ const TransactionsPage = () => {
   const fetchProducts = () => {
     axios
       .get(
-        `http://localhost:5001/transactions`
+        `http://localhost:5001/getTransaction`
        //'https://shoppingapiacme.herokuapp.com/shopping'
         )
       .then((res) => {
