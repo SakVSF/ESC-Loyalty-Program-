@@ -38,7 +38,7 @@ For those debugging and unfamiliar with what to put in bankapp follow this route
 sign in(using above credentials) > click "View Loyalty Programs" > go to Gojet Points and click "Transfer Miles" > put in following details in form :
 ```
 username : jasonpeng
-memberid: 2153642985
-confirm_memberid : 2153642985
+memberid: 0824934980
+confirm_memberid : 0824934980
 ```
-press ok to all window alerts (they are put there for debugging ) > if valid, page will go to transfer-miles>  enter number of points to transfer(e.g. 200/300) > currently error in POST to transactions/add 
+press ok to all window alerts> if valid, page will go to transfer-miles>  enter number of points to transfer(e.g. 200/300) > go to home> view status > go back to home> sign out
