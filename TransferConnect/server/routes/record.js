@@ -1,7 +1,7 @@
 const { query, response } = require("express");
 const express = require("express");
 const { validate } = require("./validation");
-
+const nodemailer = require("nodemailer"); 
 const baseURL = "http://localhost:5001"
 // recordRoutes is an instance of the express router.
 
@@ -192,6 +192,36 @@ recordRoutes.route("/transactions").get(function (req, response) {
               console.log("1 document updated");
             }
           });
+
+
+          let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'hungchiayu1@gmail.com',
+              pass: 'jqtznryntrbluugg'
+            },
+            tls:
+            {
+                rejectUnauthorized:false
+            }
+          });
+          
+          let mailOptions = {
+            from: 'hungchiayu1@gmail.com',
+            to: result.Email,
+            subject: 'Transaction made',
+            text: `Transaction of points ${req.body.amount} made }`
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+
+
 
           res.statusCode = 201;
     });
