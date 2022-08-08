@@ -157,6 +157,7 @@ recordRoutes.route("/transactions").get(function (req, response) {
             Amount: req.body.amount,
             Status: req.body.status,
             MemberID: req.body.memberid,
+            Username : req.body.username,
             LoyaltyProgramID: req.body.programid,
             Description: "",
             RefNo: RefNo,
