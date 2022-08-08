@@ -1,7 +1,7 @@
 const { query, response } = require("express");
 const express = require("express");
 const { validate } = require("./validation");
-const request = require('request');
+
 const baseURL = "http://localhost:5001"
 // recordRoutes is an instance of the express router.
 
