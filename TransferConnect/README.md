@@ -30,3 +30,9 @@ Wait for the browser to launch localhost:3000
 cd TransferConnect
 cd server
 npm test
+
+## Fuzzing test
+cd TransferConnect
+sudo npm i -g jsfuzz
+cd server cd routes
+jsfuzz fuzz.js
