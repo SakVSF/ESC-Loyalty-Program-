@@ -34,5 +34,7 @@ npm test
 ## Fuzzing test
 ```cd TransferConnect
 sudo npm i -g jsfuzz
-cd server cd routes
-jsfuzz fuzz.js```
+cd server 
+cd routes
+jsfuzz fuzz.js
+```
