@@ -110,30 +110,14 @@ async function getHandback(partner) {
 // I have set the timings to 10am for get accrual and 10.01am for put accrual for now.
 function timedGetAccrual(){
     const job = schedule.scheduleJob('00 10 * * *', function(){
-        getAccrual()
+        getHandback("Partner1")
       });
 }
 
 function timedPutAccrual(){
     const job = schedule.scheduleJob('01 10 * * *', function(){
-        putAccrual()
+        putaccrual("Partner1")
       });
-    await sftp
-        .connect(config)
-        .then(async () => {
-            try {
-                //default folder path :  \\melvrickgoh\sutd_2022_c4g9
-                d = `\\${partner}/${partner}_${YYYYMMDD}.csv`; //<dir>/<filename> of sftp (remote path)
-                console.log("downloading.....");
-                await sftp.get(d, "Handback.csv");
-                console.log("success");
-            } catch (err) {
-                console.log("failed \n", err);
-            }
-        })
-        .finally(() => {
-            sftp.end();
-        });
 }
 
 //TODO: update db from handback file
