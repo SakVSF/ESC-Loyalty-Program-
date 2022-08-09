@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const schedule = require('node-schedule');
+const repeated = require("./routes/accrual")
 require("dotenv").config({ path: "./config.env" });
 const port = 5001;
 app.use(cors());
@@ -16,6 +18,9 @@ app.listen(port, () => {
  
   });
   console.log(`Server is running on port: ${port}`);
+  repeated.timedGetAccrual();
+  repeated.timedPutAccrual();
+
 });
 
 module.exports = app;

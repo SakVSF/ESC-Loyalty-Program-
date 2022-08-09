@@ -8,6 +8,7 @@ const fastcsv = require("fast-csv");
 const fs = require("fs");
 const { config } = require("process");
 const { setFlagsFromString } = require("v8");
+const schedule = require('node-schedule');
 
 async function getcsv(){
     //generate csv file from database contents
@@ -33,7 +34,7 @@ async function getcsv(){
     })
 }
 
-async function putaccrual(){
+async function putAccrual(){
 
     let Client = require ("ssh2-sftp-client");
     //npm install ssh2-sftp-client
@@ -81,7 +82,31 @@ async function getAccrual(){
         }
         catch(err) {console.log("failed \n",err);}
     }).finally(() => {sftp.end();});
+} 
+// times both get and put, the format for the time is as follows:
+// *    *    *    *    *    *
+// ┬    ┬    ┬    ┬    ┬    ┬
+// │    │    │    │    │    │
+// │    │    │    │    │    └ day of week (0 - 7) (0 or 7 is Sun)
+// │    │    │    │    └───── month (1 - 12)
+// │    │    │    └────────── day of month (1 - 31)
+// │    │    └─────────────── hour (0 - 23)
+// │    └──────────────────── minute (0 - 59)
+// └───────────────────────── second (0 - 59, OPTIONAL)
+// I have set the timings to 10am for get accrual and 10.01am for put accrual for now.
+function timedGetAccrual(){
+    const job = schedule.scheduleJob('00 10 * * *', function(){
+        getAccrual()
+      });
+}
+
+function timedPutAccrual(){
+    const job = schedule.scheduleJob('01 10 * * *', function(){
+        putAccrual()
+      });
 }
 //getcsv()
 //putaccrual()
-getAccrual()
+// getAccrual()
+exports.timedGetAccrual = timedGetAccrual
+exports.timedPutAccrual = timedPutAccrual
