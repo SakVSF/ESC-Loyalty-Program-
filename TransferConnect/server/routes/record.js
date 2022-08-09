@@ -117,31 +117,6 @@ recordRoutes.route("/transactions").get(function (req, response) {
         }
     });
 
-    recordRoutes.route("/changememberpoints").post( async (req,res)=>
-    {
-       
-        const dbConnect = dbo.getDb();
-        const query = { "MemberID": req.body.memberid };
-        const result =  await dbConnect.collection("Members").findOne(query);
-        let pointsAval = result.PointsAvailable
-        const remaining = parseInt(pointsAval) - parseInt(req.body.amount);
-        const updates = {
-            $set: {
-              PointsAvailable: remaining.toString()
-            }
-          };
-        dbConnect
-          .collection("Members")
-          .updateOne(query, updates, function (err, _result) {
-            if (err) {
-              res.sendstatus(400).send(`Error!`);
-            } else {
-                res.sendStatus(201);
-              console.log("1 document updated");
-            }
-          });
-   
-    })
 
 
     recordRoutes.route("/transactions/add").post(async function (req, res,next) {
@@ -211,7 +186,7 @@ recordRoutes.route("/transactions").get(function (req, response) {
             from: 'hungchiayu1@gmail.com',
             to: result.Email,
             subject: 'Transaction made',
-            text: `Transaction of points ${req.body.amount} made }`
+            text: `${req.body.amount} points transferred to ${req.body.programid}`
           };
           
           transporter.sendMail(mailOptions, function(error, info){
