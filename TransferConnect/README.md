@@ -32,7 +32,7 @@ cd server
 npm test
 
 ## Fuzzing test
-cd TransferConnect
+```cd TransferConnect
 sudo npm i -g jsfuzz
 cd server cd routes
-jsfuzz fuzz.js
+jsfuzz fuzz.js```
