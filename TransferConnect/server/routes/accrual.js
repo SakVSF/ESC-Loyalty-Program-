@@ -26,7 +26,7 @@ async function getcsv() {
             client
                 .db("TransferConnect")
                 .collection("Transactions")
-                .find({})
+                .find({Status: "1111"})
                 .toArray((err, data) => {
                     if (err) throw err;
                     //console.log(data);
@@ -42,7 +42,9 @@ async function getcsv() {
     );
 }
 
-async function putaccrual(partner) {
+async function putaccrual(partner, getcsv) {
+    //run getcsv first, to ensure correct ordering
+    getcsv();
     //put an accrual file into sftp server
     let Client = require("ssh2-sftp-client");
     //npm install ssh2-sftp-client
@@ -110,13 +112,13 @@ async function getHandback(partner) {
 // I have set the timings to 10am for get accrual and 10.01am for put accrual for now.
 function timedGetAccrual(){
     const job = schedule.scheduleJob('00 10 * * *', function(){
-        getHandback("Partner1")
+        getHandback("Partner1") // this should loop later in the future.
       });
 }
 
-function timedPutAccrual(){
-    const job = schedule.scheduleJob('01 10 * * *', function(){
-        putaccrual("Partner1")
+async function timedPutAccrual(){
+    const job = schedule.scheduleJob('52 * * * *', function(){
+        putaccrual("Partner1", getcsv) // this should loop later in the future.
       });
 }
 
@@ -128,11 +130,12 @@ function timedPutAccrual(){
 
 //TODO: clear db
 
-//test functions
-//getcsv()
-//putaccrual()
-// getAccrual()
 exports.timedGetAccrual = timedGetAccrual
 exports.timedPutAccrual = timedPutAccrual
+//test functions
+// getcsv()
+//putaccrual()
+// getAccrual()
+
 //putaccrual("Partner1")
 //getHandback("Partner1")

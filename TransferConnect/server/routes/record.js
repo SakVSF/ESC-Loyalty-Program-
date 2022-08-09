@@ -308,6 +308,7 @@ recordRoutes.route("/:id").delete((req, response) => {
 
 /*This section checks if a transaction is complete, and returns the error code to tell the user what went wrong.
 List of codes this API will return:
+  1111 - awaiting processing
   0000 - success
   0001 - member not found
   0002 - member name mismatch
@@ -326,6 +327,8 @@ recordRoutes.route("/status").get(async function (req, res) {
         .findOne(query); // returns the transaction of that member
     const status = transaction.Status;
     switch (status) {
+        case "1111":
+          res.send("awaiting processing")
         case "0000":
             res.send("success");
             break;
