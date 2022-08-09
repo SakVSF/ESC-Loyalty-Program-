@@ -1,27 +1,11 @@
 
-.success-popup {
-
-  background-color: #fff;
-  border: 1px solid #000;
-
-  box-sizing: border-box;
-  width:700px;
-  height:700px;
-
-  overflow: hidden;
-  max-width: 90%;
-  max-height: 90%;
-  text-align: center;
-  font-size: 25px;
-  color: #000;
-}
 .scontainer1{
   font-family: Alegreya;
 
   justify-content: center;
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 70px;
 
   font-size: 20px;
   width: "lg";
@@ -72,4 +56,7 @@
 
 
 
+}
+.ellipse-icon{
+  mix-blend-mode: multiply;
 }

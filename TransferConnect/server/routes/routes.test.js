@@ -12,17 +12,11 @@ describe('GET test', () => {
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   
   })
-  it ('should returns an array of jsons of transactions',async()=>
-  {
-    const res = await request(baseURL).get("/transactions");
-    expect(res.statusCode).toBe(200); // Check status code is correct
-    expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
-  }
-  )
+
 
   it ('should return a single loyalty program',async ()=>
   { 
-
+    
     const res = await request(baseURL).get("/record/62d784e44a7de48ac4e31d3a");
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
@@ -37,19 +31,49 @@ describe('GET test', () => {
 
   it ('should return a transaction record given a valid member id',async ()=>
   { 
-    const body= {"MemberID":666};
-    const res =  await request(baseURL).get("/status").send(body);
+    const body= {memberid:100097739895};
+    const res =  await request(baseURL).get("/getTransaction/MemberID").send(body);
     expect(res.statusCode).toBe(200); // Check status code is correct
     expect(res.body).toEqual(expect.anything());  // Check the body of response is not null or undefined
   })
 
-  it ('should throw an error given an invalid member id',async ()=>
+  it ('should try and fetch a transaction with an invalid member id and return empty array ',async ()=>
   { 
-    const body= {"MemberID":6616};
-    const res =  await request(baseURL).get("/status").send(body);
-    expect(res.statusCode).toBe(500); // Check status code is correct
+    const body= {memberid:"6616"};
+    const res =  await request(baseURL).get("/getTransaction/MemberID").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual([]);
   
   })
+
+  it ('should try and fetch a transaction with a valid refno and return that transaction',async ()=>
+  { 
+    const body= {refno:"1"};
+    const res =  await request(baseURL).get("/getTransaction/refno").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual(expect.anything());
+
+  })
+  it ('should try and fetch a transaction with an invalid request body and return empty array',async ()=>
+  { 
+    const body= {random:"6616"};
+    const res =  await request(baseURL).get("/getTransaction/refno").send(body);
+
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual(null);
+
+  
+  })
+  it ('should try and fetch a transaction with an invalid refno and return an empty array',async ()=>
+  { 
+    const body= {refno:"13"};
+    const res =  await request(baseURL).get("/getTransaction/refno").send(body);
+    expect(res.statusCode).toBe(200); // Check status code is correct
+    expect(res.body).toEqual(null);
+
+  })
+  
+  
 
 });
 
@@ -67,5 +91,32 @@ it ('should add a record into the database',async () => {
     expect(response.statusCode).toBe(201);  // Check if post request has succeeded
 
 });
+
+
+it ('should add a transaction into the database',async () => {
+  const testbody = {
+    
+    amount: "1",
+    status: "2",
+    memberid: "3",
+    programid: "4"
+
+};
+  const response = await request(baseURL).post("/transactions/add").send(testbody);
+
+  expect(response.statusCode).toBe(201);  // Check if post request has succeeded
+
+});
+
+
+it ('should change the member points remaining in the of adatabase',async () => {
+  const testbody =  {memberid:"0824934980",amount:"0"};
+  const response = await request(baseURL).post("/changememberpoints").send(testbody);
+
+  expect(response.statusCode).toBe(201);  // Check if post request has succeeded
+
+});
+
+
 
 });

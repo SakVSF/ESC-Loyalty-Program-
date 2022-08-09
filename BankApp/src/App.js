@@ -3,12 +3,15 @@ import {
   Route,
   useNavigationType,
   useLocation,
+  useState,
   
 } from "react-router-dom";
 import { Homepage } from "./Homepage";
 import  MembershipValidation  from "./MembershipValidation";
 import LoyaltyPrograms  from "./LoyaltyPrograms";
-import { TransactionsPage } from "./TransactionsPage";
+import  TransactionsPage  from "./TransactionsPage";
+import  TransferMiles from "./TransferMiles";
+import Success  from "./Success";
 import { useEffect } from "react";
 import { SignIn } from "./SignIn";
 import { SignOut } from "./SignOut";
@@ -16,7 +19,7 @@ import { SignOut } from "./SignOut";
 
 function App() {
 
-
+  
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
@@ -62,6 +65,14 @@ function App() {
         title = "TransactionsPage";
         metaDescription = "TransactionsPage";
         break;
+      case "/transfer-miles":
+        title = "TransferMiles";
+        metaDescription = "TransferMiles";
+        break;
+      case "/success":
+        title = "Success";
+        metaDescription = "Success";
+        break;
       case "/":
         title = "Sign In";
         metaDescription = "Sign In";
@@ -105,6 +116,8 @@ function App() {
         <Route path="/membership-validation/:id" element={<MembershipValidation />} />
 
         <Route path="/loyalty-programs" element={<LoyaltyPrograms />} />
+        <Route path="/transfer-miles" element={<TransferMiles />} />
+        <Route path="/success" element={<Success />} />
 
        <Route path="/transactions-page" element={<TransactionsPage />} />
   </Routes>

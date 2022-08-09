@@ -1,0 +1,70 @@
+
+
+.tcontainer1 {
+ 
+  font-family: Alegreya;
+
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-top: 60px;
+
+  font-size: 50px;
+  width: "lg";
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+  grid-gap: 5px;
+
+}
+.tbox1 {
+  margin-top: auto;
+
+  font-size: 35px;
+  font-family: Alegreya;
+  justify-content: "center";
+
+}
+.transferbutton{
+  cursor: pointer;
+  padding: 0;
+  font-size: 20px;
+  background-color: #cdf5f4;
+  width:100px;
+  height:50px;
+  border-color: #b8d2e7;
+  border-radius: 10px;
+  margin-top: 10px;
+
+ 
+
+}
+.tcard1 {
+  margin-bottom: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+  width: 500px;
+  border-radius: 5px;
+
+}
+.tgrid-container1 {
+
+  direction: "row";
+
+  justify-content: "center";
+
+  align-items: "stretch";
+  border-spacing: 2px;
+
+}
+.inputfield{
+  height: 50px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #b8d2e7;
+    font-size:20px;
+
+}
+.labelpoints{
+  font-size:30px;
+}
