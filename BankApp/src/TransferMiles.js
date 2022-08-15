@@ -89,8 +89,8 @@ const addtoTransactions= async ()=> {
 
   const navigate = useNavigate();
  
-  const [points, setPoints]= useState("0");
-  const [remaining ,setRemaining ] =useState("0");
+  const [points, setPoints]= useState("");
+  const [remaining ,setRemaining ] =useState("");
 
 
 
@@ -173,6 +173,7 @@ const addtoTransactions= async ()=> {
                           <div>
                               <input
                                             className="inputfield"
+                                         
                                             type="text"
                                             readOnly
                 
@@ -215,7 +216,7 @@ const addtoTransactions= async ()=> {
 
                                         className="inputfield"
                                         type="text"
-
+                                        id="points"
                                         required
                                         
                                         placeholder="Points to transfer"
