@@ -2,7 +2,9 @@
 const request = require("supertest")
 const baseURL = "http://localhost:5001"
 const ObjectId = require("mongodb").ObjectId;
-
+const url =
+"mongodb+srv://hith:chun@merntest0.hqr9i9x.mongodb.net/merntest0?retryWrites=true&w=majority";
+const mongodb = require("mongodb").MongoClient;
 describe('GET test', () => {
 
   it('should return an array of loyalty program', async () => {
@@ -104,19 +106,60 @@ it ('should add a transaction into the database',async () => {
 };
   const response = await request(baseURL).post("/transactions/add").send(testbody);
 
-  expect(response.statusCode).toBe(201);  // Check if post request has succeeded
+  expect(response.statusCode).toBe(200);  // Check if post request has succeeded
 
 });
 
 
-it ('should change the member points remaining in the of adatabase',async () => {
-  const testbody =  {memberid:"0824934980",amount:"0"};
-  const response = await request(baseURL).post("/changememberpoints").send(testbody);
+it ('should return a error 404 when accessing an api that does not exist', async ()=>
+{
+  const response = await request(baseURL).post("/transactifons/add").send({}); // wrong post address
+  expect(response.statusCode).toBe(404)
 
-  expect(response.statusCode).toBe(201);  // Check if post request has succeeded
-
-});
-
+})
 
 
 });
+
+describe("UPDATE TEST", ()=>
+{
+  it ('should update a transaction in the mongodb',()=>
+  {
+  
+    const updates = {
+      $set: {
+        Description: "random"
+      }
+    };
+    const res = mongodb.connect(
+      url,
+      { useNewUrlParser: true, useUnifiedTopology: true },
+      (err, client) => {
+          if (err) throw err;
+          client
+              .db("TransferConnect")
+              .collection("Fuzzingtest").updateOne({"RefNo":1},updates)})
+  }
+  )
+})
+
+describe("DELETE TEST", ()=>
+{
+  it ('should update a delete a record in the mongodb',()=>
+  {
+  
+    mongodb.connect(
+      url,
+      { useNewUrlParser: true, useUnifiedTopology: true },
+      (err, client) => {
+          if (err) throw err;
+          client
+              .db("TransferConnect")
+              .collection("Fuzzingtest").deleteOne({"RefNo":1}).
+  }
+  )
+})
+})
+
+
+

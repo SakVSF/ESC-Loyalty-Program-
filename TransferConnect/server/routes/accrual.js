@@ -1,4 +1,5 @@
 const { dir, assert } = require("console");
+const path = require('path');
 const url =
 "mongodb+srv://hith:chun@merntest0.hqr9i9x.mongodb.net/merntest0?retryWrites=true&w=majority";
 const mongodb = require("mongodb").MongoClient;
@@ -6,6 +7,7 @@ const mongodb = require("mongodb").MongoClient;
 const fastcsv = require("fast-csv");
 //npm install fast-csv
 const fs = require("fs");
+
 const { config } = require("process");
 const { setFlagsFromString } = require("v8");
 const schedule = require('node-schedule');
@@ -118,6 +120,7 @@ function timedGetAccrual(){
 
 async function timedPutAccrual(){
     const job = schedule.scheduleJob('52 * * * *', function(){
+        changeTransac();
         putaccrual("Partner1", getcsv) // this should loop later in the future.
       });
 }
@@ -139,3 +142,39 @@ exports.timedPutAccrual = timedPutAccrual
 
 //putaccrual("Partner1")
 //getHandback("Partner1")
+const changeTransac =  ()=>
+    {
+       
+        let refNoList = [];
+        fs.createReadStream(path.resolve(__dirname, '','accrual.csv'))
+    .pipe(fastcsv.parse({ headers: true }))
+    .on('error', error => console.error(error))
+    .on('data',  row => refNoList.push(row.RefNo))
+    .on('end', async rowCount => {
+        for(var i =0;i<refNoList.length;i++)
+        { query = {"RefNo":refNoList[i]}
+        console.log(query)
+        const updates = {
+            $set: {
+              Status: "0000"
+            }
+          };
+        mongodb.connect(
+                url,
+                { useNewUrlParser: true, useUnifiedTopology: true },
+                (err, client) => {
+                    if (err) throw err;
+                    client
+                        .db("TransferConnect")
+                        .collection("Transactions")
+                        .updateOne(query, updates, function (err, _result) {
+                            if (err) {
+                             throw err;
+                            } else {
+                              console.log("1 document updated");
+                            }})});
+
+        }
+    })};
+
+    changeTransac();

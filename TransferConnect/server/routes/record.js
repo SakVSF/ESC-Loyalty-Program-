@@ -3,6 +3,9 @@ const express = require("express");
 const { validate } = require("./validation");
 const nodemailer = require("nodemailer"); 
 const baseURL = "http://localhost:5001"
+const fastcsv = require("fast-csv");
+//npm install fast-csv
+const fs = require("fs");
 // recordRoutes is an instance of the express router.
 
 // We use it to define our routes.
@@ -16,6 +19,8 @@ const recordRoutes = express.Router();
 const dbo = require("../db/conn");
 
 // This help convert the id from string to ObjectId for the _id.
+
+            
 
 const ObjectId = require("mongodb").ObjectId;
 
@@ -117,8 +122,8 @@ recordRoutes.route("/transactions").get(function (req, response) {
         }
     });
 
-
-
+    
+ 
     recordRoutes.route("/transactions/add").post(async function (req, res,next) {
         const db_connect = dbo.getDb("merntest0");
         var today = new Date();
@@ -135,7 +140,7 @@ recordRoutes.route("/transactions").get(function (req, response) {
             Username : req.body.username,
             LoyaltyProgramID: req.body.programid,
             Description: "",
-            RefNo: RefNo,
+            RefNo: RefNo.toString(),
         };
 
         db_connect.collection("Transactions").insertOne(myobj, function (err, result) {
