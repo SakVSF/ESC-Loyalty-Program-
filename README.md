@@ -5,9 +5,13 @@
 Team: C4G9
  
 Lim Boon Han Melvin
+
 Hung Chia-Yu
+
 Wee Chun Hui
+
 Saakshi Vinod Saraf
+
 Peng Jing Ming Jason
 
 Please go to respective folders to find further instructions on running the app 
